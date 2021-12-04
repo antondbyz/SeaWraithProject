@@ -8,21 +8,20 @@ public class GameManager : MonoBehaviour
     public float UpperWorldBound => _upperWorldBound;
     public float LowerWorldBound => _lowerWorldBound;
     public int Score => _score;
-    public float GameSpeed => _gameSpeed;
-    public float GameSpeedInterpolationPoint => (_gameSpeed - _minGameSpeed) / (_maxGameSpeed - _minGameSpeed);
+    public float MaxGameHardness => _maxGameHardness;
+    public float GameHardnessInterpPoint => _gameHardness / _maxGameHardness;
 
     [SerializeField] private float _upperWorldBound = 0;
     [SerializeField] private float _lowerWorldBound = 0;
-    [Header("Game speed")]
-    [SerializeField] private float _minGameSpeed = 15;
-    [SerializeField] private float _maxGameSpeed = 40;
-    [SerializeField] private float _gameAcceleration = 0.5f;
+    [Header("Game hardness")]
+    [SerializeField] private float _startGameHardness = 1;
+    [SerializeField] private float _maxGameHardness = 3;
+    [SerializeField] private float _gameHardnessingSpeed = 0.1f;
     [Space(20)]
     [SerializeField] private TMP_Text _scoreText = null;
 
     private Transform _player = null;
-    private float _gameSpeed;
-
+    private float _gameHardness;
     private int _score;
 
     private void Awake()
@@ -31,12 +30,12 @@ public class GameManager : MonoBehaviour
         else Destroy(this);
 
         _player = GameObject.FindWithTag("Player").transform;
-        _gameSpeed = _minGameSpeed;
+        _gameHardness = _startGameHardness;
     }
 
     private void Update()
     {
-        _gameSpeed = Mathf.MoveTowards(_gameSpeed, _maxGameSpeed, _gameAcceleration * Time.deltaTime);
+        _gameHardness = Mathf.MoveTowards(_gameHardness, _maxGameHardness, _gameHardnessingSpeed * Time.deltaTime);
         _score = (int)_player.position.x;
         _scoreText.text = _score.ToString();
     }

@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public int Health
     {
         get => _health;
-        private set
+        set
         {
             value = Mathf.Clamp(value, 0, _maxHealth);
             _health = value;
@@ -36,13 +36,5 @@ public class PlayerHealth : MonoBehaviour
             _healthSlots.Add(newHealthSlot);
         }
         Health = _maxHealth;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Bomb"))
-        {
-            Health--;
-        }
     }
 }

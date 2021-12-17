@@ -14,24 +14,20 @@ public class PlayerCollisionsChecker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Interactable interactable = other.GetComponent<Interactable>();
-        if(interactable != null)
+        if(other.CompareTag("Bomb"))
         {
-            switch (interactable.Type)
-            {
-                case InteractableType.Bomb:
-                    _playerHealth.Health--;
-                    break;
-                
-                case InteractableType.Armor:
-                    _playerHealth.Health++;
-                    break;
-
-                case InteractableType.Coin:
-                    _playerCoins.Coins++;
-                    break;
-            }
-            Destroy(other.gameObject); 
+            _playerHealth.Health--;
+            Destroy(other.gameObject);
+        }
+        else if(other.CompareTag("Armor"))
+        {
+            _playerHealth.Health++;
+            Destroy(other.gameObject);
+        }
+        else if(other.CompareTag("Coin"))
+        {
+            _playerCoins.Coins++;
+            Destroy(other.gameObject);
         }
     }
 }

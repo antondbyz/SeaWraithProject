@@ -9,11 +9,12 @@ public class StaticBomb : MonoBehaviour
     {
         float randomScale = Random.Range(_minScale, _maxScale);
         transform.localScale = new Vector2(randomScale, randomScale);
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Pickable"))
+        if(other.CompareTag("Armor") || other.CompareTag("Coin"))
         {
             Destroy(gameObject);
         }

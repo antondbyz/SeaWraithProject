@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pickable
+  - Armor
+  - Coin
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -45,6 +47,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ship
+  - name: Particles
     uniqueID: 264865193
     locked: 0

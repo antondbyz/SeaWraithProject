@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5393799218964388206}
   - component: {fileID: -3915498764722414480}
   - component: {fileID: -624282416583274745}
-  - component: {fileID: 4389791546393618700}
+  - component: {fileID: -2694894991950430638}
   m_Layer: 0
   m_Name: StaticBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2d9d3796251c614bbb921c70d8a3f32, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxScale: 3
   _minScale: 2
---- !u!114 &4389791546393618700
+--- !u!114 &-2694894991950430638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6756202957965830855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb6548cae8fbc8a479035cd26c6982f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8caffa15f28a33c4c8dd7f012952a737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0

@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class Spawnable : MonoBehaviour
 {
-    private ParticleSystem _bubblesParticles = null;
-
-    private void Awake()
-    {
-        _bubblesParticles = transform.GetComponentInChildren<ParticleSystem>();
-    }
+    [SerializeField] private ParticleSystem _bubblesParticles;
     
     private void OnBecameInvisible()
     {

@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
-  _maxGravity: 0.8
+  _minGravity: 0.2
+  _maxGravity: 0.7
   _minTorque: 45
   _maxTorque: 90
 --- !u!114 &-7847887164249073540
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8caffa15f28a33c4c8dd7f012952a737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bubblesParticles: {fileID: 8013374868295178420}
 --- !u!1001 &13437046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,10 +239,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8013374868282921155, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 264865193
-      objectReference: {fileID: 0}
     - target: {fileID: 8013374868282921156, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
       propertyPath: m_Name
       value: BubblesParticles
@@ -250,5 +248,10 @@ PrefabInstance:
 --- !u!4 &8013374868295178423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8013374868282921153, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
+  m_PrefabInstance: {fileID: 13437046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8013374868295178420 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8013374868282921154, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
   m_PrefabInstance: {fileID: 13437046}
   m_PrefabAsset: {fileID: 0}

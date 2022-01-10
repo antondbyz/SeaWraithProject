@@ -3,48 +3,36 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Speed range")]
-    [SerializeField] private float _startSpeed = 15;
-    [SerializeField] private float _targetSpeed = 30;
-    [Space(20)]
-    [SerializeField] private float _rotateSpeed = 30;
-    [SerializeField] private int _maxRotationAngle = 20;
-    [SerializeField] private float _alignToBorderSpeed = 50;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _rotateSpeed;
+    [SerializeField] private int _maxRotationAngle;
+    [SerializeField] private float _alignToBorderSpeed;
 
     private Rigidbody2D _rigidbody;
-    private float _speed;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _speed = _startSpeed;
     }
 
     private void FixedUpdate() 
     { 
-        bool isOnUpperWorldBound = _rigidbody.position.y >= GameManager.Instance.UpperWorldBound;
-        bool isOnLowerWorldBound = _rigidbody.position.y <= GameManager.Instance.LowerWorldBound;
-
-        if(Input.GetKey(KeyCode.DownArrow) && !isOnLowerWorldBound)
+        bool isOnWaterLevel = transform.position.y >= GameManager.Instance.WaterLevel;
+        if(Input.GetKey(KeyCode.DownArrow))
         {
             RotateTowards(-_maxRotationAngle, _rotateSpeed);
         }
-        else if (isOnUpperWorldBound)
+        else if (isOnWaterLevel)
         {
             RotateTowards(0, _alignToBorderSpeed);
         }
 
-        if(Input.GetKey(KeyCode.UpArrow) && !isOnUpperWorldBound)
+        if(Input.GetKey(KeyCode.UpArrow) && !isOnWaterLevel)
         {
             RotateTowards(_maxRotationAngle, _rotateSpeed);
         }
-        else if (isOnLowerWorldBound)
-        {
-            RotateTowards(0, _alignToBorderSpeed);
-        }
-        float clampedYPos = Mathf.Clamp(_rigidbody.position.y, GameManager.Instance.LowerWorldBound, GameManager.Instance.UpperWorldBound);
+        float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, GameManager.Instance.WaterLevel);
         _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
-        _speed = Mathf.Lerp(_startSpeed, _targetSpeed, GameManager.Instance.GameHardnessInterpPoint);
         _rigidbody.velocity = transform.right * _speed;
     }
 

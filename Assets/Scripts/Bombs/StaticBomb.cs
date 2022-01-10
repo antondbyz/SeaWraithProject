@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class StaticBomb : Bomb
 {
-    [SerializeField] private float _maxScale = 2f;
-    [SerializeField] private float _minScale = 1;
+    [SerializeField] private float _maxScale;
+    [SerializeField] private float _minScale;
 
     private void Awake()
     {

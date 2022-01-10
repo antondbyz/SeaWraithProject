@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -12,17 +11,30 @@ public class PlayerHealth : MonoBehaviour
             _health = value;
             if(_health == 0)
             {
-                Time.timeScale = 0;
+                Die();
             }
         }
     }
 
-    [SerializeField] private int _maxHealth = 3;
+    [SerializeField] private int _maxHealth;
 
     private int _health;
 
     private void Awake()
     {
         Health = _maxHealth;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            Health = 0;
+        }
+    }
+
+    private void Die()
+    {
+        Time.timeScale = 0;
     }
 }

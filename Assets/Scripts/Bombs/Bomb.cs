@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] private GameObject _explosionEffect = null;
+    [SerializeField] private GameObject _explosionEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

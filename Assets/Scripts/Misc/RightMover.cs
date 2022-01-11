@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Torpedo : Bomb
+public class RightMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
 

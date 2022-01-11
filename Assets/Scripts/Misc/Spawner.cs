@@ -16,8 +16,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        GameManager gameManager = GameManager.Instance;
-        if(Time.time >= _nextSpawn) 
+        if(ScoreManager.Instance.Score >= _nextSpawn) 
         {
             if(Random.value <= _spawnProbability)
             {   
@@ -26,7 +25,7 @@ public class Spawner : MonoBehaviour
                 float randY = Random.Range(transform.position.y - _spawnAreaSize.y / 2, transform.position.y + _spawnAreaSize.y / 2);
                 spawnedObject.transform.position = new Vector2(randX, randY);
             }
-            _nextSpawn = Time.time + _spawnRate;
+            _nextSpawn = ScoreManager.Instance.Score + _spawnRate;
         }
     }
 

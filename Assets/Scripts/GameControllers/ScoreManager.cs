@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instance;
+
     public int Score => _score;
 
     [SerializeField] private TMP_Text _scoreText;
@@ -13,6 +15,9 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null) Instance = this;
+        else Debug.LogWarning("More than one instance of ScoreManager");
+
         _player = GameObject.FindWithTag("Player").transform;
         _startPlayerXPos = _player.position.x;
     }

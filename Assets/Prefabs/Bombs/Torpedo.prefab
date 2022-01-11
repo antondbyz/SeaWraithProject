@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3341917966663401220}
   - component: {fileID: 1445794983470115047}
   - component: {fileID: 1445794983470115066}
+  - component: {fileID: 129089585969114048}
   - component: {fileID: 1445794983470115065}
   - component: {fileID: -5900869809675031940}
   m_Layer: 0
@@ -134,6 +135,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &129089585969114048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445794983470115046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b754067c7be714e826c8c143d779c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
 --- !u!114 &1445794983470115065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cc1e7e68eb35147996b254f51c09a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
   _speed: 70
 --- !u!114 &-5900869809675031940
 MonoBehaviour:

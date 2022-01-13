@@ -3,28 +3,29 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnable;
-    [SerializeField] private float _spawnRate;
-    [Range(0, 1)][SerializeField] private float _spawnProbability;
+    [Header("Spawn rate")]
+    [SerializeField] private float _startSpawnRate;
+    [SerializeField] private float _targetSpawnRate;
+    [Space(20)]
     [SerializeField] private Vector2 _spawnAreaSize;
 
+    private float _spawnRate;
     private float _nextSpawn;
 
     private void Awake()
     {
-        _nextSpawn = _spawnRate;
+        _nextSpawn = _startSpawnRate;
     }
 
     private void Update()
     {
+        _spawnRate = Mathf.Lerp(_startSpawnRate, _targetSpawnRate, GameManager.Instance.GameHardness);
         if(ScoreManager.Instance.Score >= _nextSpawn) 
         {
-            if(Random.value <= _spawnProbability)
-            {   
-                GameObject spawnedObject = Instantiate(_spawnable, transform.position, transform.rotation);
-                float randX = Random.Range(transform.position.x - _spawnAreaSize.x / 2, transform.position.x + _spawnAreaSize.x / 2);
-                float randY = Random.Range(transform.position.y - _spawnAreaSize.y / 2, transform.position.y + _spawnAreaSize.y / 2);
-                spawnedObject.transform.position = new Vector2(randX, randY);
-            }
+            GameObject spawnedObject = Instantiate(_spawnable, transform.position, transform.rotation);
+            float randX = Random.Range(transform.position.x - _spawnAreaSize.x / 2, transform.position.x + _spawnAreaSize.x / 2);
+            float randY = Random.Range(transform.position.y - _spawnAreaSize.y / 2, transform.position.y + _spawnAreaSize.y / 2);
+            spawnedObject.transform.position = new Vector2(randX, randY);
             _nextSpawn = ScoreManager.Instance.Score + _spawnRate;
         }
     }

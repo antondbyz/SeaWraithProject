@@ -1258,8 +1258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 6756202957965830855, guid: ace15086bbaf12443b8ba3eb744eb1f6, type: 3}
-  _spawnRate: 8
-  _spawnProbability: 1
+  _startSpawnRate: 10
+  _targetSpawnRate: 4
   _spawnAreaSize: {x: 1, y: 63}
 --- !u!1818360608 &1229589116
 PositionConstraint:
@@ -1407,6 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waterLevel: 34
+  _gameHardnessingSpeed: 1
 --- !u!114 &1504318552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,8 +1471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 1445794983470115046, guid: c72c5af1a5e36d44f8e5287190c1630a, type: 3}
-  _spawnRate: 80
-  _spawnProbability: 1
+  _startSpawnRate: 100
+  _targetSpawnRate: 60
   _spawnAreaSize: {x: 0, y: 0}
 --- !u!4 &1688726185
 Transform:
@@ -1537,9 +1538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 2012785835722798007, guid: 9c0baf81684572c4790520866eecb952, type: 3}
-  _spawnRate: 30
-  _spawnProbability: 1
-  _spawnAreaSize: {x: 70, y: 1}
+  _startSpawnRate: 50
+  _targetSpawnRate: 20
+  _spawnAreaSize: {x: 80, y: 1}
 --- !u!4 &2069613572
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
             _health = value;
             if(_health == 0)
             {
-                Die();
+                Time.timeScale = 0;
             }
         }
     }
@@ -31,10 +31,5 @@ public class PlayerHealth : MonoBehaviour
         {
             Health = 0;
         }
-    }
-
-    private void Die()
-    {
-        Time.timeScale = 0;
     }
 }

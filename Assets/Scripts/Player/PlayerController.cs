@@ -3,12 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [Header("Speed range")]
+    [SerializeField] private float _startSpeed;
+    [SerializeField] private float _targetSpeed;
+    [Space(20)]
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private int _maxRotationAngle;
     [SerializeField] private float _alignToBorderSpeed;
 
     private Rigidbody2D _rigidbody;
+    private float _speed;
 
     private void Awake()
     {
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
         }
         float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, GameManager.Instance.WaterLevel);
         _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
+        _speed = Mathf.Lerp(_startSpeed, _targetSpeed, GameManager.Instance.GameHardness);
         _rigidbody.velocity = transform.right * _speed;
     }
 

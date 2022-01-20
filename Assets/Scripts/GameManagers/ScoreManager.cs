@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     private Transform _player;
     private float _startPlayerXPos;
 
-    private void Awake()
+    private void Start()
     {
         if(Instance == null) Instance = this;
         else Debug.LogWarning("More than one instance of ScoreManager");

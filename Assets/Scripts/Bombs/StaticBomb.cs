@@ -5,7 +5,7 @@ public class StaticBomb : Bomb
     [SerializeField] private float _maxScale;
     [SerializeField] private float _minScale;
 
-    private void Awake()
+    private void Start()
     {
         float randomScale = Random.Range(_minScale, _maxScale);
         transform.localScale = new Vector2(randomScale, randomScale);

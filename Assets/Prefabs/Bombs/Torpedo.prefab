@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveDirection: {x: 1, y: 0}
   _startSpeed: 60
-  _targetSpeed: 80
+  _targetSpeed: 85
 --- !u!114 &-5900869809675031940
 MonoBehaviour:
   m_ObjectHideFlags: 0

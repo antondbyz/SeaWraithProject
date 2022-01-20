@@ -10,7 +10,7 @@ public class DirectionMover : MonoBehaviour
     
     private float _speed;
 
-    private void Awake()
+    private void Start()
     {
         _speed = Mathf.Lerp(_startSpeed, _targetSpeed, GameManager.Instance.GameHardness);
         GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(_moveDirection) * _speed;

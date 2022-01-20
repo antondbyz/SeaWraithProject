@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     private float _spawnRate;
     private float _nextSpawn;
 
-    private void Awake()
+    private void Start()
     {
         _nextSpawn = _startSpawnRate;
     }

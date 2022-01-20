@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private float _gameHardness;
 
-    private void Awake()
+    private void Start()
     {
         if(Instance == null) Instance = this;
         else Debug.LogWarning("More than one instance of GameManager");

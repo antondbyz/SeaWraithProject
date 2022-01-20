@@ -10,7 +10,7 @@ public class FallingBomb : Bomb
     [SerializeField] private float _minTorque;
     [SerializeField] private float _maxTorque;
 
-    private void Awake()
+    private void Start()
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
 

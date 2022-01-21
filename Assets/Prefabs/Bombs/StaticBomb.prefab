@@ -136,8 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
-  _maxScale: 3.5
-  _minScale: 2.5
+  _scaleRange:
+    Min: 2.5
+    Max: 3.5
 --- !u!114 &-2694894991950430638
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,15 +4,13 @@ using UnityEngine;
 public class DirectionMover : MonoBehaviour
 {
     [SerializeField] private Vector2 _moveDirection;
-    [Header("Speed range")]
-    [SerializeField] private float _startSpeed;
-    [SerializeField] private float _targetSpeed;
+    [SerializeField] private MinMaxRange _speedRange;
     
     private float _speed;
 
     private void Start()
     {
-        _speed = Mathf.Lerp(_startSpeed, _targetSpeed, GameManager.Instance.GameHardness);
+        _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, HardnessManager.Instance.GameHardness);
         GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(_moveDirection) * _speed;
     }
 

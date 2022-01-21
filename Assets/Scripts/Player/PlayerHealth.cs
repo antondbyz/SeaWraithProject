@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 _smokeParticles.Play();
                 float t = Mathf.Abs(Mathf.InverseLerp(1, _maxHealth - 1, _health) - 1);
-                _emission.rateOverTime = Mathf.Lerp(_minSmokeEmission, _maxSmokeEmission, t);
+                _emission.rateOverTime = Mathf.Lerp(_smokeEmissionRange.Min, _smokeEmissionRange.Max, t);
             }
             if(_health == 0)
             {
@@ -26,9 +26,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [Header("Smoke")]
     [SerializeField] private ParticleSystem _smokeParticles;
-    [Space]
-    [SerializeField] private float _minSmokeEmission;
-    [SerializeField] private float _maxSmokeEmission;
+    [SerializeField] private MinMaxRange _smokeEmissionRange;
 
     private int _health;
     private EmissionModule _emission;

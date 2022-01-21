@@ -414,8 +414,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _smokeParticles: {fileID: 1389547592}
-  _minSmokeEmission: 10
-  _maxSmokeEmission: 40
+  _smokeEmissionRange:
+    Min: 10
+    Max: 40
 --- !u!4 &580927203
 Transform:
   m_ObjectHideFlags: 0
@@ -492,11 +493,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad02935a89b8934aa16c1dba7bd0fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startSpeed: 25
-  _targetSpeed: 40
+  _speedRange:
+    Min: 25
+    Max: 40
+  _upperBorder: 34
+  _alignToBorderSpeed: 90
   _rotateSpeed: 30
   _maxRotationAngle: 35
-  _alignToBorderSpeed: 90
 --- !u!1 &743006782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,8 +1114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 6756202957965830855, guid: ace15086bbaf12443b8ba3eb744eb1f6, type: 3}
-  _startSpawnRate: 10
-  _targetSpawnRate: 4
+  _spawnRateRange:
+    Min: 10
+    Max: 4
   _spawnAreaSize: {x: 1, y: 63}
 --- !u!1818360608 &1229589116
 PositionConstraint:
@@ -6028,8 +6032,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504318550}
-  - component: {fileID: 1504318551}
   - component: {fileID: 1504318552}
+  - component: {fileID: 1504318551}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6060,11 +6064,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504318549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0b19d70933f084b806c0ece38f7bfc, type: 3}
+  m_Script: {fileID: 11500000, guid: 84fffb814d83ca1468de215cdb881058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waterLevel: 34
-  _gameHardnessingSpeed: 0.01
+  _hardnessingSpeed: 0.1
 --- !u!114 &1504318552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6190,8 +6193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 1445794983470115046, guid: c72c5af1a5e36d44f8e5287190c1630a, type: 3}
-  _startSpawnRate: 130
-  _targetSpawnRate: 80
+  _spawnRateRange:
+    Min: 130
+    Max: 80
   _spawnAreaSize: {x: 0, y: 0}
 --- !u!4 &1688726185
 Transform:
@@ -6289,8 +6293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 2012785835722798007, guid: 9c0baf81684572c4790520866eecb952, type: 3}
-  _startSpawnRate: 70
-  _targetSpawnRate: 40
+  _spawnRateRange:
+    Min: 70
+    Max: 40
   _spawnAreaSize: {x: 60, y: 1}
 --- !u!4 &2069613572
 Transform:

@@ -3,10 +3,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnable;
-    [Header("Spawn rate")]
-    [SerializeField] private float _startSpawnRate;
-    [SerializeField] private float _targetSpawnRate;
-    [Space(20)]
+    [SerializeField] private MinMaxRange _spawnRateRange;
     [SerializeField] private Vector2 _spawnAreaSize;
 
     private float _spawnRate;
@@ -14,12 +11,12 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        _nextSpawn = _startSpawnRate;
+        _nextSpawn = _spawnRateRange.Min;
     }
 
     private void Update()
     {
-        _spawnRate = Mathf.Lerp(_startSpawnRate, _targetSpawnRate, GameManager.Instance.GameHardness);
+        _spawnRate = Mathf.Lerp(_spawnRateRange.Min, _spawnRateRange.Max, HardnessManager.Instance.GameHardness);
         if(ScoreManager.Instance.Score >= _nextSpawn) 
         {
             GameObject spawnedObject = Instantiate(_spawnable, transform.position, transform.rotation);

@@ -4,7 +4,7 @@ using UnityEngine;
 public class DirectionMover : MonoBehaviour
 {
     [SerializeField] private Vector2 _moveDirection;
-    [SerializeField] private MinMaxRange _speedRange;
+    [SerializeField] private MinMaxRange<float> _speedRange;
     
     private float _speed;
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StaticBomb : Bomb
 {
-    [SerializeField] private MinMaxRange _scaleRange;
+    [SerializeField] private MinMaxRange<float> _scaleRange;
 
     private void Start()
     {

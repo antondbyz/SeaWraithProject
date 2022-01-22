@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FallingBomb : Bomb
 {
-    [SerializeField] private MinMaxRange _gravityRange;
-    [SerializeField] private MinMaxRange _torqueRange;
+    [SerializeField] private MinMaxRange<float> _gravityRange;
+    [SerializeField] private MinMaxRange<float> _torqueRange;
 
     private void Start()
     {

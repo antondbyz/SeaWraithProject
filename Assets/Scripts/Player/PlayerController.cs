@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private MinMaxRange _speedRange;
+    [SerializeField] private MinMaxRange<float> _speedRange;
     [Header("Game border")]
     [SerializeField] private float _upperBorder;
     [SerializeField] private float _alignToBorderSpeed;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private float _speed;
 
-    private void Awake()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }

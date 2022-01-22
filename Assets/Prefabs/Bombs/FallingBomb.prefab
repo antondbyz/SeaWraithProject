@@ -149,10 +149,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
   _gravityRange:
-    Min: 0.25
-    Max: 0.5
+    Min: 0.2
+    Max: 0.55
   _torqueRange:
-    Min: -90
+    Min: 45
     Max: 90
 --- !u!114 &8719863153239194391
 MonoBehaviour:

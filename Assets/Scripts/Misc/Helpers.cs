@@ -1,6 +1,6 @@
 [System.Serializable]
-struct MinMaxRange
+struct MinMaxRange<T>
 {
-    public float Min;
-    public float Max;
+    public T Min;
+    public T Max;
 }

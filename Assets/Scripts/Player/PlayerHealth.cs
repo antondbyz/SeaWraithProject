@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [Header("Smoke")]
     [SerializeField] private ParticleSystem _smokeParticles;
-    [SerializeField] private MinMaxRange _smokeEmissionRange;
+    [SerializeField] private MinMaxRange<float> _smokeEmissionRange;
 
     private int _health;
     private EmissionModule _emission;

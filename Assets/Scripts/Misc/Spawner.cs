@@ -3,7 +3,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnable;
-    [SerializeField] private MinMaxRange _spawnRateRange;
+    [SerializeField] private MinMaxRange<float> _spawnRateRange;
     [SerializeField] private Vector2 _spawnAreaSize;
 
     private float _spawnRate;

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1445794983470115066}
   - component: {fileID: 129089585969114048}
   - component: {fileID: 1445794983470115065}
-  - component: {fileID: -5900869809675031940}
+  - component: {fileID: 6072059988992496772}
+  - component: {fileID: 4466713290282215389}
   m_Layer: 0
   m_Name: Torpedo
   m_TagString: Untagged
@@ -164,7 +165,7 @@ MonoBehaviour:
   _speedRange:
     Min: 60
     Max: 85
---- !u!114 &-5900869809675031940
+--- !u!114 &6072059988992496772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,10 +174,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445794983470115046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caffa15f28a33c4c8dd7f012952a737, type: 3}
+  m_Script: {fileID: 11500000, guid: ba983f78e1611f94fb6a05ee6e8932bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bubblesParticles: {fileID: 8013374867903497697}
+--- !u!114 &4466713290282215389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445794983470115046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7ba4be6d9797441ac849eedab2e7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &962958627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,10 +265,5 @@ PrefabInstance:
 --- !u!4 &8013374867903497698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8013374868282921153, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
-  m_PrefabInstance: {fileID: 962958627}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8013374867903497697 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8013374868282921154, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
   m_PrefabInstance: {fileID: 962958627}
   m_PrefabAsset: {fileID: 0}

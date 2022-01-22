@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
             }
             if(_health == 0)
             {
-                Time.timeScale = 0;
+                gameObject.SetActive(false);
             }
         }
     }

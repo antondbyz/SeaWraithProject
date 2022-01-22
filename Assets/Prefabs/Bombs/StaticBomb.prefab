@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5393799218964388206}
   - component: {fileID: -3915498764722414480}
   - component: {fileID: -624282416583274745}
-  - component: {fileID: -2694894991950430638}
+  - component: {fileID: 8678180235197517888}
   m_Layer: 0
   m_Name: StaticBomb
   m_TagString: Untagged
@@ -139,7 +139,7 @@ MonoBehaviour:
   _scaleRange:
     Min: 2.5
     Max: 3.5
---- !u!114 &-2694894991950430638
+--- !u!114 &8678180235197517888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6756202957965830855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caffa15f28a33c4c8dd7f012952a737, type: 3}
+  m_Script: {fileID: 11500000, guid: ba983f78e1611f94fb6a05ee6e8932bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bubblesParticles: {fileID: 0}

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8564458761810147558}
   - component: {fileID: 2012785835722798004}
   - component: {fileID: 1028823661620607530}
-  - component: {fileID: -7847887164249073540}
+  - component: {fileID: 8719863153239194391}
+  - component: {fileID: 6279779605985881082}
   m_Layer: 0
   m_Name: FallingBomb
   m_TagString: Untagged
@@ -153,7 +154,7 @@ MonoBehaviour:
   _torqueRange:
     Min: -90
     Max: 90
---- !u!114 &-7847887164249073540
+--- !u!114 &8719863153239194391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,10 +163,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2012785835722798007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caffa15f28a33c4c8dd7f012952a737, type: 3}
+  m_Script: {fileID: 11500000, guid: ba983f78e1611f94fb6a05ee6e8932bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bubblesParticles: {fileID: 8013374868295178420}
+--- !u!114 &6279779605985881082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012785835722798007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7ba4be6d9797441ac849eedab2e7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &13437046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,10 +262,5 @@ PrefabInstance:
 --- !u!4 &8013374868295178423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8013374868282921153, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
-  m_PrefabInstance: {fileID: 13437046}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8013374868295178420 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8013374868282921154, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
   m_PrefabInstance: {fileID: 13437046}
   m_PrefabAsset: {fileID: 0}

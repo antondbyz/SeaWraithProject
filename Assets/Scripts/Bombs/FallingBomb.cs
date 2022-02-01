@@ -6,7 +6,7 @@ public class FallingBomb : Bomb
     [SerializeField] private MinMaxRange<float> _gravityRange;
     [SerializeField] private MinMaxRange<float> _torqueRange;
 
-    private void Start()
+    private void Awake()
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
 

@@ -4,7 +4,7 @@ public class ChildParticlesController : MonoBehaviour
 {
     private ParticleSystem[] _childParticles;
 
-    private void Start()
+    private void Awake()
     {
         _childParticles = gameObject.GetComponentsInChildren<ParticleSystem>();
     }

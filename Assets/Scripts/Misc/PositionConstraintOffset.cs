@@ -8,7 +8,7 @@ public class PositionConstraintOffset : MonoBehaviour
 
     private PositionConstraint _constraint;
 
-    private void Start()
+    private void Awake()
     {
         _constraint = GetComponent<PositionConstraint>();
     }

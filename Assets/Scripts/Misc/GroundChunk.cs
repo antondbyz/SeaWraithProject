@@ -5,7 +5,7 @@ public class GroundChunk : MonoBehaviour
     private static float Offset;
     private static Transform LastChunk;
 
-    private void Start()
+    private void Awake()
     {
         if(transform.GetSiblingIndex() == transform.parent.childCount - 1)
         {

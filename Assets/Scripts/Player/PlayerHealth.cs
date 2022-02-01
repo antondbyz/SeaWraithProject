@@ -3,6 +3,7 @@ using static UnityEngine.ParticleSystem;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public event System.Action Died;
     public bool IsAlive => _health > 0;
     public int Health
     {
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
                 if(_collider != null) Destroy(_collider);
                 _bubblesParticles.Stop();
                 _deathBubblesParticles.Play();
+                Died?.Invoke();
             }
         }
     }
@@ -38,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
     private EmissionModule _emission;
     private Collider2D _collider;
 
-    private void Start()
+    private void Awake()
     {
         _collider = GetComponent<Collider2D>();
         _emission = _smokeParticles.emission;

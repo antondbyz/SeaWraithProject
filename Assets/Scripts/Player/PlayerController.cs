@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _newVelocity;
     private float _sinkGravityCached;
 
-    private void Start()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _health = GetComponent<PlayerHealth>();

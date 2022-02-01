@@ -10,16 +10,21 @@ public class ScoreManager : Singleton<ScoreManager>
     private int _score;
     private Transform _player;
     private float _startPlayerXPos;
+    private PlayerHealth _playerHealth;
 
     private void Start()
     {
         _player = GameObject.FindWithTag("Player").transform;
         _startPlayerXPos = _player.position.x;
+        _playerHealth = _player.GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
         _score = (int)(_player.position.x - _startPlayerXPos);
-        _scoreText.text = _score.ToString();
+        if(_playerHealth.IsAlive)
+        {
+            _scoreText.text = _score.ToString();
+        }
     }
 }

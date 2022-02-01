@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerHealth))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private MinMaxRange<float> _speedRange;
@@ -10,44 +10,65 @@ public class PlayerController : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private int _maxRotationAngle;
+    [Header("Sink")]
+    [SerializeField] private float _sinkGravity;
+    [SerializeField] private float _sinkRotationSpeed;
+    [SerializeField] private float _sinkSlowingSpeed;
+
 
     private Rigidbody2D _rigidbody;
+    private PlayerHealth _health;
     private float _speed;
+    private Vector2 _newVelocity;
+    private float _sinkGravityCached;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _health = GetComponent<PlayerHealth>();
+        _sinkGravityCached = _sinkGravity;
     }
 
     private void FixedUpdate() 
     { 
-        bool isOnUpperBorder = transform.position.y >= _upperBorder;
-        if(Input.GetKey(KeyCode.UpArrow) && !isOnUpperBorder)
+        if(_health.IsAlive)
         {
-            RotateTowards(_maxRotationAngle, _rotateSpeed);
-        }
-        if(Input.GetKey(KeyCode.DownArrow) && (!isOnUpperBorder || _rigidbody.rotation <= 0))
-        {
-            RotateTowards(-_maxRotationAngle, _rotateSpeed);
-        }
-        if (isOnUpperBorder && _rigidbody.rotation > 0)
-        {
-            RotateTowards(0, _alignToBorderSpeed);
-        }
+            bool isOnUpperBorder = transform.position.y >= _upperBorder;
+            if(Input.GetKey(KeyCode.UpArrow) && !isOnUpperBorder)
+            {
+                _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, _maxRotationAngle, _rotateSpeed);
+            }
+            if(Input.GetKey(KeyCode.DownArrow) && (!isOnUpperBorder || _rigidbody.rotation <= 0))
+            {
+                _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, -_maxRotationAngle, _rotateSpeed);
+            }
+            if (isOnUpperBorder && _rigidbody.rotation > 0)
+            {
+                _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, 0, _alignToBorderSpeed);
+            }
 
-        float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, _upperBorder);
-        _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
+            float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, _upperBorder);
+            _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
 
-        _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, HardnessManager.Instance.GameHardness);
-        _rigidbody.velocity = transform.right * _speed;
+            _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, HardnessManager.Instance.GameHardness);
+            _newVelocity = transform.right * _speed;
+        }
+        else
+        {
+            _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, -90, _sinkRotationSpeed);
+            _speed = MoveTowardsFixed(_speed, 0, _sinkSlowingSpeed);
+            _sinkGravity += _sinkGravityCached * Time.fixedDeltaTime;
+            _newVelocity = (Vector2)(transform.right * _speed) - (Vector2.up * _sinkGravity);
+        }
+        _rigidbody.velocity = _newVelocity;
     }
 
-    private void RotateTowards(float targetRotation, float speed)
+    private float MoveTowardsFixed(float current, float target, float speed)
     {
-        _rigidbody.rotation = Mathf.MoveTowards(_rigidbody.rotation, targetRotation, speed * Time.fixedDeltaTime);
+        return Mathf.MoveTowards(current, target, speed * Time.fixedDeltaTime);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(0, _upperBorder), new Vector2(10, _upperBorder));

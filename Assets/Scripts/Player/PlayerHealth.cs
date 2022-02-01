@@ -3,6 +3,7 @@ using static UnityEngine.ParticleSystem;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public bool IsAlive => _health > 0;
     public int Health
     {
         get => _health;
@@ -18,21 +19,28 @@ public class PlayerHealth : MonoBehaviour
             }
             if(_health == 0)
             {
-                gameObject.SetActive(false);
+                if(_collider != null) Destroy(_collider);
+                _bubblesParticles.Stop();
+                _deathBubblesParticles.Play();
             }
         }
     }
 
     [SerializeField] private int _maxHealth;
+    [Header("Bubbles particles")]
+    [SerializeField] private ParticleSystem _bubblesParticles;
+    [SerializeField] private ParticleSystem _deathBubblesParticles;
     [Header("Smoke")]
     [SerializeField] private ParticleSystem _smokeParticles;
     [SerializeField] private MinMaxRange<float> _smokeEmissionRange;
 
     private int _health;
     private EmissionModule _emission;
+    private Collider2D _collider;
 
     private void Start()
     {
+        _collider = GetComponent<Collider2D>();
         _emission = _smokeParticles.emission;
         Health = _maxHealth;
     }

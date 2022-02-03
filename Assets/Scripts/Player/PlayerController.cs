@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _maxRotationAngle;
     [Header("Sink")]
     [SerializeField] private float _sinkGravity;
-    [SerializeField] private float _sinkRotationSpeed;
+    [SerializeField] private float _sinkRotateSpeed;
     [SerializeField] private float _sinkSlowingSpeed;
 
 
     private Rigidbody2D _rigidbody;
     private PlayerHealth _health;
+    private HardnessController _hardness;
     private float _speed;
     private Vector2 _newVelocity;
     private float _sinkGravityCached;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _health = GetComponent<PlayerHealth>();
+        _hardness = ObjectsFinder.FindGameController().GetComponent<HardnessController>();
         _sinkGravityCached = _sinkGravity;
     }
 
@@ -50,12 +52,12 @@ public class PlayerController : MonoBehaviour
             float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, _upperBorder);
             _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
 
-            _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, HardnessManager.Instance.GameHardness);
+            _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, _hardness.GameHardness);
             _newVelocity = transform.right * _speed;
         }
         else
         {
-            _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, -90, _sinkRotationSpeed);
+            _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, -90, _sinkRotateSpeed);
             _speed = MoveTowardsFixed(_speed, 0, _sinkSlowingSpeed);
             _sinkGravity += _sinkGravityCached * Time.fixedDeltaTime;
             _newVelocity = (Vector2)(transform.right * _speed) - (Vector2.up * _sinkGravity);

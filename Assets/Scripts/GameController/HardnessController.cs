@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HardnessManager : Singleton<HardnessManager>
+public class HardnessController : MonoBehaviour
 {
     public float GameHardness => _gameHardness;
 

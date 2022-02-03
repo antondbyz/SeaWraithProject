@@ -9,7 +9,7 @@ public class ChildParticlesController : MonoBehaviour
         _childParticles = gameObject.GetComponentsInChildren<ParticleSystem>();
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         if(gameObject.activeInHierarchy)
         {

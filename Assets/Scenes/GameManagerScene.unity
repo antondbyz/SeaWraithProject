@@ -163,7 +163,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504318549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84fffb814d83ca1468de215cdb881058, type: 3}
+  m_Script: {fileID: 11500000, guid: 2310f09b2e06f3b43a999d2b717a1b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hardnessingSpeed: 0.02
+  _mainMenuBuildIndex: 2
+  _loadingSceneBuildIndex: 1
+  _gameBuildIndex: 3

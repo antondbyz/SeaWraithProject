@@ -9,16 +9,18 @@ public class Spawner : MonoBehaviour
     private float _spawnRate;
     private float _nextSpawn;
     private PlayerScore _playerScore;
+    private HardnessController _hardness;
 
     private void Awake()
     {
-        _playerScore = GameObject.FindWithTag("Player").GetComponent<PlayerScore>();
+        _playerScore = ObjectsFinder.FindPlayer().GetComponent<PlayerScore>();
+        _hardness = ObjectsFinder.FindGameController().GetComponent<HardnessController>();
         _nextSpawn = _spawnRateRange.Min;
     }
 
     private void Update()
     {
-        _spawnRate = Mathf.Lerp(_spawnRateRange.Min, _spawnRateRange.Max, HardnessManager.Instance.GameHardness);
+        _spawnRate = Mathf.Lerp(_spawnRateRange.Min, _spawnRateRange.Max, _hardness.GameHardness);
         if(_playerScore.Score >= _nextSpawn) 
         {
             GameObject spawnedObject = Instantiate(_spawnable, transform.position, transform.rotation);

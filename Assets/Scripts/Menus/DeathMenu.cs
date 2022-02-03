@@ -15,7 +15,7 @@ public class DeathMenu : MonoBehaviour
 
     private void Awake()
     {
-        GameObject player = GameObject.FindWithTag("Player");
+        GameObject player = ObjectsFinder.FindPlayer();
         _playerHealth = player.GetComponent<PlayerHealth>();
         _playerScore = player.GetComponent<PlayerScore>();
     }

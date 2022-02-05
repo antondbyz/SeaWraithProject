@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : Singleton<ScenesManager>
 {
-    public int MainMenuBuildIndex => _mainMenuBuildIndex;
-    public int LoadingSceneBuildIndex => _loadingSceneBuildIndex;
-    public int GameBuildIndex => _gameBuildIndex;
-
     [Header("Build indexes")]
     [SerializeField] private int _mainMenuBuildIndex;
     [SerializeField] private int _loadingSceneBuildIndex;
@@ -22,11 +18,26 @@ public class ScenesManager : Singleton<ScenesManager>
         };
         if(SceneManager.sceneCount == 1)
         {
-            StartCoroutine(OpenScene(_mainMenuBuildIndex));
+            OpenMainMenuScene();
         }
     }
 
-    public IEnumerator OpenScene(int buildIndex)
+    public void OpenMainMenuScene()
+    {
+        StartCoroutine(OpenScene(_mainMenuBuildIndex));
+    }
+
+    public void OpenGameScene()
+    {
+        StartCoroutine(OpenScene(_gameBuildIndex));
+    }
+
+    public void OpenSceneByIndex(int buildIndex)
+    {
+        StartCoroutine(OpenScene(buildIndex));
+    }
+
+    private IEnumerator OpenScene(int buildIndex)
     {
         for(int i = 1; i < SceneManager.sceneCount; i++)
         {
@@ -38,7 +49,7 @@ public class ScenesManager : Singleton<ScenesManager>
         operation.allowSceneActivation = false;
         yield return new WaitForSeconds(2);
         operation.allowSceneActivation = true;
-        if(!operation.isDone) yield return operation;
+        yield return new WaitUntil(() => operation.isDone);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
     }
 }

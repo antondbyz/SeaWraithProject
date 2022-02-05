@@ -4,16 +4,16 @@ public class SceneController : MonoBehaviour
 {
     public void RestartScene()
     {
-        StartCoroutine(ScenesManager.Instance.OpenScene(gameObject.scene.buildIndex));
+        ScenesManager.Instance.OpenSceneByIndex(gameObject.scene.buildIndex);
     }
 
     public void OpenMainMenuScene()
     {
-        StartCoroutine(ScenesManager.Instance.OpenScene(ScenesManager.Instance.MainMenuBuildIndex));
+        ScenesManager.Instance.OpenMainMenuScene();
     }
 
     public void OpenGameScene()
     {
-        StartCoroutine(ScenesManager.Instance.OpenScene(ScenesManager.Instance.GameBuildIndex));
+        ScenesManager.Instance.OpenGameScene();
     }
 }

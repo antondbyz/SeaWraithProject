@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerHealth))]
 public class PlayerController : MonoBehaviour
 {
+    public float SpeedInterpPoint => _speed / _speedRange.Max;
+
     [SerializeField] private MinMaxRange<float> _speedRange;
     [Header("Game border")]
     [SerializeField] private float _upperBorder;

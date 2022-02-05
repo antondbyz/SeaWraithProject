@@ -7,17 +7,17 @@ public class PositionConstraintOffset : MonoBehaviour
     [SerializeField] private MinMaxRange<Vector2> _offsetRange; 
 
     private PositionConstraint _constraint;
-    private HardnessController _hardness;
+    private PlayerController _playerController;
 
     private void Awake()
     {
         _constraint = GetComponent<PositionConstraint>();
-        _hardness = ObjectsFinder.FindGameController().GetComponent<HardnessController>();
+        _playerController = ObjectsFinder.FindPlayer().GetComponent<PlayerController>();
     }
 
     private void Update()
     {
-        Vector2 offset = Vector2.Lerp(_offsetRange.Min, _offsetRange.Max, _hardness.GameHardness);
+        Vector2 offset = Vector2.Lerp(_offsetRange.Min, _offsetRange.Max, _playerController.SpeedInterpPoint);
         _constraint.translationOffset = offset;
     }
 
@@ -27,8 +27,12 @@ public class PositionConstraintOffset : MonoBehaviour
         Transform sourceTransform = GetComponent<PositionConstraint>().GetSource(0).sourceTransform;
         if(sourceTransform != null)
         {
-            Gizmos.DrawSphere(_offsetRange.Min + (Vector2)sourceTransform.position, 0.5f);
-            Gizmos.DrawSphere(_offsetRange.Max + (Vector2)sourceTransform.position, 0.5f);
+            Vector3 min = _offsetRange.Min + (Vector2)sourceTransform.position;
+            Vector3 max = _offsetRange.Max + (Vector2)sourceTransform.position;
+            Gizmos.DrawSphere(min, 0.5f);
+            Gizmos.DrawSphere(max, 0.5f);
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(min, max);
         }
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5849585469721606379}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedRange:
     Min: 25
-    Max: 40
+    Max: 50
   _upperBorder: 34
   _alignToBorderSpeed: 90
   _rotateSpeed: 30
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _explosionEffect: {fileID: 1999180760505635099, guid: 7ab23038c85477041ac9e08acb306419, type: 3}
   _bubblesParticles: {fileID: 5849585470670582855}
   _deathBubblesParticles: {fileID: 4474571430104000841}
   _smokeParticles: {fileID: 5849585471607805506}

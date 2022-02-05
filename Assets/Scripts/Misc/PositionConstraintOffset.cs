@@ -31,7 +31,7 @@ public class PositionConstraintOffset : MonoBehaviour
             Vector3 max = _offsetRange.Max + (Vector2)sourceTransform.position;
             Gizmos.DrawSphere(min, 0.5f);
             Gizmos.DrawSphere(max, 0.5f);
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.blue;
             Gizmos.DrawLine(min, max);
         }
     }

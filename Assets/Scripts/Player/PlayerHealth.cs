@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
             }
             if(_health == 0)
             {
+                _gameUI.SetActive(false);
                 Instantiate(_explosionEffect, transform.position, Quaternion.identity);
                 if(_collider != null) Destroy(_collider);
                 _bubblesParticles.Stop();
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private int _maxHealth;
     [SerializeField] private GameObject _explosionEffect;
+    [SerializeField] private GameObject _gameUI;
     [Header("Bubbles particles")]
     [SerializeField] private ParticleSystem _bubblesParticles;
     [SerializeField] private ParticleSystem _deathBubblesParticles;

@@ -9,6 +9,8 @@ public class ScenesManager : Singleton<ScenesManager>
     [SerializeField] private int _loadingSceneBuildIndex;
     [SerializeField] private int _gameBuildIndex;
 
+    private WaitForSecondsRealtime _loadingSceneDuration = new WaitForSecondsRealtime(1.5f);
+
     protected override void Awake()
     {
         base.Awake();
@@ -47,7 +49,7 @@ public class ScenesManager : Singleton<ScenesManager>
         yield return null;
         AsyncOperation operation = SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Additive);
         operation.allowSceneActivation = false;
-        yield return new WaitForSeconds(2);
+        yield return _loadingSceneDuration;
         operation.allowSceneActivation = true;
         yield return new WaitUntil(() => operation.isDone);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));

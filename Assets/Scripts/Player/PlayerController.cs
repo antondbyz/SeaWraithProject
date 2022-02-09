@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private PlayerHealth _health;
     private HardnessController _hardness;
+    private InputController _input;
     private float _speed;
     private Vector2 _newVelocity;
     private float _sinkGravityCached;
@@ -29,7 +30,9 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _health = GetComponent<PlayerHealth>();
-        _hardness = ObjectsFinder.FindGameController().GetComponent<HardnessController>();
+        GameObject gameController = ObjectsFinder.FindGameController();
+        _hardness = gameController.GetComponent<HardnessController>();
+        _input = gameController.GetComponent<InputController>();
         _sinkGravityCached = _sinkGravity;
     }
 
@@ -38,11 +41,12 @@ public class PlayerController : MonoBehaviour
         if(_health.IsAlive)
         {
             bool isOnUpperBorder = transform.position.y >= _upperBorder;
-            if(Input.GetKey(KeyCode.UpArrow) && !isOnUpperBorder)
+            float verticalInput = _input.VerticalInput;
+            if(verticalInput > 0 && !isOnUpperBorder)
             {
                 _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, _maxRotationAngle, _rotateSpeed);
             }
-            if(Input.GetKey(KeyCode.DownArrow) && (!isOnUpperBorder || _rigidbody.rotation <= 0))
+            if(verticalInput < 0 && (!isOnUpperBorder || _rigidbody.rotation <= 0))
             {
                 _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, -_maxRotationAngle, _rotateSpeed);
             }

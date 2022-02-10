@@ -164,7 +164,7 @@ MonoBehaviour:
   _moveDirection: {x: 1, y: 0}
   _speedRange:
     Min: 60
-    Max: 85
+    Max: 80
 --- !u!114 &6072059988992496772
 MonoBehaviour:
   m_ObjectHideFlags: 0

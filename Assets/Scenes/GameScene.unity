@@ -1479,7 +1479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229589113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70, y: 3, z: 0}
+  m_LocalPosition: {x: 70, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1498,10 +1498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 6756202957965830855, guid: ace15086bbaf12443b8ba3eb744eb1f6, type: 3}
-  _spawnRateRange:
-    Min: 10
-    Max: 5
-  _spawnAreaSize: {x: 1, y: 54}
+  _spawnAreaSize: {x: 1, y: 52}
+  _spawnRate: 7
 --- !u!1818360608 &1229589116
 PositionConstraint:
   m_ObjectHideFlags: 0
@@ -1553,7 +1551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1340039218
@@ -1744,10 +1742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 1445794983470115046, guid: c72c5af1a5e36d44f8e5287190c1630a, type: 3}
-  _spawnRateRange:
-    Min: 120
-    Max: 80
   _spawnAreaSize: {x: 0, y: 0}
+  _spawnRate: 120
 --- !u!4 &1688726185
 Transform:
   m_ObjectHideFlags: 0
@@ -1882,10 +1878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnable: {fileID: 2012785835722798007, guid: 9c0baf81684572c4790520866eecb952, type: 3}
-  _spawnRateRange:
-    Min: 50
-    Max: 35
   _spawnAreaSize: {x: 80, y: 1}
+  _spawnRate: 40
 --- !u!4 &2069613572
 Transform:
   m_ObjectHideFlags: 0
@@ -2018,7 +2012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offsetRange:
     Min: {x: 35, y: -3.5}
-    Max: {x: 70, y: -3.5}
+    Max: {x: 80, y: -3.5}
 --- !u!1001 &5849585470235395594
 PrefabInstance:
   m_ObjectHideFlags: 0

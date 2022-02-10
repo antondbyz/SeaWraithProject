@@ -5,15 +5,12 @@ public class DirectionMover : MonoBehaviour
 {
     [SerializeField] private Vector2 _moveDirection;
     [SerializeField] private MinMaxRange<float> _speedRange;
-    
-    private float _speed;
-    private HardnessController _hardness;
 
     private void Awake()
     {
-        _hardness = ObjectsFinder.FindGameController().GetComponent<HardnessController>();
-        _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, _hardness.GameHardness);
-        GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(_moveDirection) * _speed;
+        PlayerController controller = ObjectsFinder.FindPlayer().GetComponent<PlayerController>();
+        float speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, controller.SpeedInterpPoint);
+        GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(_moveDirection) * speed;
     }
 
     private void OnDrawGizmos()

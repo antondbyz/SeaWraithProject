@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedRange:
     Min: 25
-    Max: 50
-  _upperBorder: 34
+    Max: 45
+  _upperBorder: 29
   _alignToBorderSpeed: 90
   _rotateSpeed: 30
   _maxRotationAngle: 35

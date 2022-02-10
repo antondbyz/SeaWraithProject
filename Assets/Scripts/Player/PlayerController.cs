@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private MinMaxRange<float> _speedRange;
     [Header("Game border")]
-    [SerializeField] private float _upperBorder;
+    [SerializeField] private Transform _upperBorder;
     [SerializeField] private float _alignToBorderSpeed;
     [Header("Rotation")]
     [SerializeField] private float _rotateSpeed;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     { 
         if(_health.IsAlive)
         {
-            bool isOnUpperBorder = transform.position.y >= _upperBorder;
+            bool isOnUpperBorder = transform.position.y >= _upperBorder.position.y;
             float verticalInput = _input.VerticalInput;
             if(verticalInput > 0 && !isOnUpperBorder)
             {
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 _rigidbody.rotation = MoveTowardsFixed(_rigidbody.rotation, 0, _alignToBorderSpeed);
             }
 
-            float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, _upperBorder);
+            float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, _upperBorder.position.y);
             _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
 
             _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, _hardness.GameHardness);
@@ -74,11 +74,5 @@ public class PlayerController : MonoBehaviour
     private float MoveTowardsFixed(float current, float target, float speed)
     {
         return Mathf.MoveTowards(current, target, speed * Time.fixedDeltaTime);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector2(0, _upperBorder), new Vector2(10, _upperBorder));
     }
 }

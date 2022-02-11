@@ -9,15 +9,18 @@ public class DeathMenu : MonoBehaviour
     [SerializeField] private float _showMenuDelay;
     [Space]
     [SerializeField] private TMP_Text _finalScoreText;
+    [SerializeField] private TMP_Text _finalCrystalsText;
 
     private PlayerHealth _playerHealth;
     private PlayerScore _playerScore;
+    private PlayerCrystals _playerCrystals;
 
     private void Awake()
     {
         GameObject player = ObjectsFinder.FindPlayer();
         _playerHealth = player.GetComponent<PlayerHealth>();
         _playerScore = player.GetComponent<PlayerScore>();
+        _playerCrystals = player.GetComponent<PlayerCrystals>();
     }
 
     private void OnEnable()
@@ -33,6 +36,7 @@ public class DeathMenu : MonoBehaviour
     private void OnPlayerDied()
     {
         _finalScoreText.text = "Score: " + _playerScore.Score;
+        _finalCrystalsText.text = "+ " + _playerCrystals.CrystalsAmount;
         StartCoroutine(ShowMenu());
     }
 

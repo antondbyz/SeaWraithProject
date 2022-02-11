@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5849585469721606380}
   - component: {fileID: 5849585469721606376}
   - component: {fileID: 5849585469721606381}
+  - component: {fileID: 5849585470235395596}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -101,7 +102,7 @@ MonoBehaviour:
   _speedRange:
     Min: 25
     Max: 45
-  _upperBorder: 29
+  _upperBorder: {fileID: 0}
   _alignToBorderSpeed: 90
   _rotateSpeed: 30
   _maxRotationAngle: 35
@@ -142,6 +143,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 0}
+--- !u!114 &5849585470235395596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849585469721606379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075b9ab188612604b89b4e72cc67afc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _crystalsText: {fileID: 0}
 --- !u!1 &5849585471462095957
 GameObject:
   m_ObjectHideFlags: 0

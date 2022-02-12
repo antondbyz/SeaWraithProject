@@ -10,4 +10,11 @@ public class StaticBomb : Bomb
         transform.localScale = new Vector2(randomScale, randomScale);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
     }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+        Crystal crystal = other.GetComponent<Crystal>();
+        if(crystal != null) Destroy(gameObject);
+    }
 }

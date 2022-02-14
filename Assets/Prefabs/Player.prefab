@@ -104,8 +104,8 @@ MonoBehaviour:
     Max: 45
   _upperBorder: {fileID: 0}
   _alignToBorderSpeed: 90
-  _rotateSpeed: 30
-  _maxRotationAngle: 35
+  _rotateSpeed: 35
+  _maxRotationAngle: 40
   _sinkGravity: 0.8
   _sinkRotateSpeed: 10
   _sinkSlowingSpeed: 20

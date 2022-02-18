@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerHealth))]
 public class PlayerController : MonoBehaviour
 {
-    public float SpeedInterpPoint => _speed / _speedRange.Max;
-
     [SerializeField] private MinMaxRange<float> _speedRange;
     [Header("Game border")]
     [SerializeField] private Transform _upperBorder;
@@ -20,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private PlayerHealth _health;
-    private HardnessController _hardness;
+    private GameSpeed _gameSpeed;
     private InputController _input;
     private float _speed;
     private Vector2 _newVelocity;
@@ -30,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _health = GetComponent<PlayerHealth>();
-        _hardness = GetComponent<HardnessController>();
+        _gameSpeed = GetComponent<GameSpeed>();
         _input = GetComponent<InputController>();
         _sinkGravityCached = _sinkGravity;
     }
@@ -57,7 +55,7 @@ public class PlayerController : MonoBehaviour
             float clampedYPos = Mathf.Clamp(_rigidbody.position.y, Mathf.NegativeInfinity, _upperBorder.position.y);
             _rigidbody.position = new Vector2(_rigidbody.position.x, clampedYPos);
 
-            _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, _hardness.GameHardness);
+            _speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, _gameSpeed.Speed);
             _newVelocity = transform.right * _speed;
         }
         else

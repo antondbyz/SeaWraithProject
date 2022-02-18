@@ -7,8 +7,8 @@ public class Torpedo : Bomb
 
     private void Awake()
     {
-        PlayerController controller = ObjectsFinder.FindPlayer().GetComponent<PlayerController>();
-        float speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, controller.SpeedInterpPoint);
+        GameSpeed gameSpeed = ObjectsFinder.FindPlayer().GetComponent<GameSpeed>();
+        float speed = Mathf.Lerp(_speedRange.Min, _speedRange.Max, gameSpeed.Speed);
         GetComponent<Rigidbody2D>().velocity = transform.right * speed;
     }
 }

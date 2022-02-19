@@ -41,8 +41,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private MinMaxRange<float> _smokeEmissionRange;
 
     private int _health;
-    private EmissionModule _emission;
     private Collider2D _collider;
+    private EmissionModule _emission;
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
         Health = _maxHealth;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Ground"))
         {

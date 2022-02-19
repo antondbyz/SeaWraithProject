@@ -36,7 +36,7 @@ public class DeathMenu : MonoBehaviour
     private void OnPlayerDied()
     {
         _finalScoreText.text = "Score: " + _playerScore.Score;
-        _finalCrystalsText.text = "+ " + _playerCrystals.CrystalsAmount;
+        _finalCrystalsText.text = "+ " + _playerCrystals.CrystalsCollected;
         StartCoroutine(ShowMenu());
     }
 

@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
-    public int Score => _score;
+    public int Score { get; private set; }
 
     [SerializeField] private TMP_Text _scoreText;
 
-    private int _score;
     private float _startXPos;
 
     private void Awake()
@@ -17,7 +16,7 @@ public class PlayerScore : MonoBehaviour
 
     private void Update()
     {
-        _score = (int)(transform.position.x - _startXPos);
-        _scoreText.text = _score.ToString();
+        Score = (int)(transform.position.x - _startXPos);
+        _scoreText.text = Score.ToString();
     }
 }

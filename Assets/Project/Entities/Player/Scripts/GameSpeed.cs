@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class GameSpeed : MonoBehaviour
 {
-    public float Speed => _speed;
+    public float Speed { get; private set; }
 
     [SerializeField] private float _accelerationRate;
 
-    private float _speed;
-
     private void Update()
     {
-        _speed = Mathf.MoveTowards(_speed, 1, _accelerationRate * Time.deltaTime);
+        Speed = Mathf.MoveTowards(Speed, 1, _accelerationRate * Time.deltaTime);
     }
 }

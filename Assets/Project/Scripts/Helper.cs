@@ -10,6 +10,4 @@ struct MinMaxRange<T>
 public static class ObjectsFinder
 {
     public static GameObject FindPlayer() => GameObject.FindWithTag("Player");
-
-    public static GameObject FindGameController() => GameObject.FindWithTag("GameController");
 }

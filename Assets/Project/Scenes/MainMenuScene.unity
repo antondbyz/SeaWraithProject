@@ -655,6 +655,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3692229227030480751, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
   m_PrefabInstance: {fileID: 741731846}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &741731848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3692229226522140862, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
+  m_PrefabInstance: {fileID: 741731846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &924299741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2a7c08b9f83334da9becc86746ca78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _crystalsText: {fileID: 741731848}
 --- !u!1001 &1815224941
 PrefabInstance:
   m_ObjectHideFlags: 0

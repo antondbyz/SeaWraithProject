@@ -6,8 +6,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Vector2 _spawnAreaSize; 
     [SerializeField] private float _spawnRate;
 
-    private float _nextSpawn;
     private PlayerScore _playerScore;
+    private float _nextSpawn;
 
     private void Awake()
     {

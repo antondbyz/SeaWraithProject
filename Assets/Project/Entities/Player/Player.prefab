@@ -132,7 +132,8 @@ MonoBehaviour:
   _speedRange:
     Min: 25
     Max: 45
-  _upperBorder: {fileID: 0}
+  _camera: {fileID: 0}
+  _borderHeightOffset: -1.5
   _alignToBorderSpeed: 90
   _rotateSpeed: 35
   _maxRotationAngle: 40
@@ -154,7 +155,6 @@ MonoBehaviour:
   _maxHealth: 3
   _explosionEffect: {fileID: 1999180760505635099, guid: 7ab23038c85477041ac9e08acb306419, type: 3}
   _gameUI: {fileID: 0}
-  _collider: {fileID: 0}
   _bubblesParticles: {fileID: 5849585470670582855}
   _deathBubblesParticles: {fileID: 4474571430104000841}
   _smokeParticles: {fileID: 5849585471607805506}

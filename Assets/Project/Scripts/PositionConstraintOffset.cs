@@ -23,12 +23,12 @@ public class PositionConstraintOffset : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.white;
         Transform sourceTransform = GetComponent<PositionConstraint>().GetSource(0).sourceTransform;
         if(sourceTransform != null)
         {
             Vector3 min = _offsetRange.Min + (Vector2)sourceTransform.position;
             Vector3 max = _offsetRange.Max + (Vector2)sourceTransform.position;
+            Gizmos.color = Color.white;
             Gizmos.DrawSphere(min, 0.5f);
             Gizmos.DrawSphere(max, 0.5f);
             Gizmos.color = Color.blue;

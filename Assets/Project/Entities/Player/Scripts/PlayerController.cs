@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
     private float GetBorderHeight(Camera camera) 
     {
+        if (camera == null) return 0;
         Vector2 borderScreenPoint = new Vector2(0, camera.scaledPixelHeight);
         return camera.ScreenToWorldPoint(borderScreenPoint).y + _borderHeightOffset;
     }

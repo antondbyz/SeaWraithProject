@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int Health
     {
         get => _health;
-        set
+        private set
         {
             value = Mathf.Clamp(value, 0, _maxHealth);
             _health = value;
@@ -53,7 +53,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Ground"))
+        Bomb bomb = other.GetComponent<Bomb>();
+        if(bomb != null)
+        {
+            bomb.Explode();
+            Health--;
+        }
+        else if(other.gameObject.CompareTag("Ground"))
         {
             Health = 0;
         }

@@ -4,8 +4,10 @@ using UnityEngine;
 public class ShopMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Text _crystalsText;
+    [Header("Replaceable Upgrade button")]
     [SerializeField] private GameObject _upgradeButton;
     [SerializeField] private GameObject _maxLevelText;
+    [Header("Replaceable YesUpgrade button")]
     [SerializeField] private GameObject _yesUpgradeButton; 
     [SerializeField] private GameObject _notEnoughCrystalsText;
     [Header("Current submarine item info")]
@@ -24,25 +26,21 @@ public class ShopMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateCrystalsInfo();
-        UpdateSubmarineItemsInfo();
-        StatsManager.CrystalsChanged += UpdateCrystalsInfo;
-        SubmarineItemsManager.CurrentSubmarineChanged += UpdateSubmarineItemsInfo;
+        UpdateUI();
+        StatsManager.CrystalsChanged += UpdateUI;
+        SubmarineItemsManager.CurrentSubmarineChanged += UpdateUI;
     }
 
     private void OnDisable()
     {
-        StatsManager.CrystalsChanged -= UpdateCrystalsInfo;
-        SubmarineItemsManager.CurrentSubmarineChanged -= UpdateSubmarineItemsInfo;
+        StatsManager.CrystalsChanged -= UpdateUI;
+        SubmarineItemsManager.CurrentSubmarineChanged -= UpdateUI;
     }
 
-    private void UpdateCrystalsInfo()
+    private void UpdateUI()
     {
         _crystalsText.text = StatsManager.CrystalsAmount.ToString();
-    }
 
-    private void UpdateSubmarineItemsInfo()
-    {
         int currentSubmarineArmor = SubmarineItemsManager.CurrentSubmarineItem.SubmarineStats.Armor;
         float currentSubmarineMobility = SubmarineItemsManager.CurrentSubmarineItem.SubmarineStats.Mobility;
         _currentSubmarineArmorText.text = $"Armor: {currentSubmarineArmor}";
@@ -58,6 +56,9 @@ public class ShopMenu : MonoBehaviour
             float nextSubmarineMobility = SubmarineItemsManager.NextSubmarineItem.SubmarineStats.Mobility;
             _nextSubmarineMobilityText.text = $"Mobility: +{nextSubmarineMobility - currentSubmarineMobility}";
             _nextSubmarinePrice.text = $"Price: {SubmarineItemsManager.NextSubmarineItem.Price}";
+            bool isEnoughCrystals = StatsManager.CrystalsAmount >= SubmarineItemsManager.NextSubmarineItem.Price;
+            _yesUpgradeButton.SetActive(isEnoughCrystals);
+            _notEnoughCrystalsText.SetActive(!isEnoughCrystals);
         }
     }
 }

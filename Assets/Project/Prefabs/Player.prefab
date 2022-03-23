@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5849585469721606377}
   - component: {fileID: 4974854434501670208}
   - component: {fileID: 5849585469721606382}
+  - component: {fileID: 7958835643490752496}
   - component: {fileID: 277239144756507095}
-  - component: {fileID: 7770185860881611448}
   - component: {fileID: 5849585469721606380}
   - component: {fileID: 5849585469721606376}
   - component: {fileID: 5849585469721606381}
@@ -90,6 +90,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7958835643490752496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849585469721606379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efdc94cb0626b1438c60776fa44e48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _accelerationRate: 0.02
 --- !u!114 &277239144756507095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,19 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveUpButton: {fileID: 0}
   _moveDownButton: {fileID: 0}
---- !u!114 &7770185860881611448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5849585469721606379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84fffb814d83ca1468de215cdb881058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _accelerationRate: 0.02
 --- !u!114 &5849585469721606380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,11 +131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedRange:
     Min: 25
-    Max: 45
-  _camera: {fileID: 0}
-  _borderHeightOffset: -1.5
-  _alignToBorderSpeed: 90
-  _rotateSpeed: 35
+    Max: 40
+  _direction: {x: 1, y: 0}
+  _waterLevel: 19.5
+  _alignToWaterSpeed: 90
   _maxRotationAngle: 40
   _sinkGravity: 0.8
   _sinkRotateSpeed: 10
@@ -152,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef2f65b1f1374b408dfec0d06e8c060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
   _explosionEffect: {fileID: 1999180760505635099, guid: 7ab23038c85477041ac9e08acb306419, type: 3}
   _gameUI: {fileID: 0}
   _bubblesParticles: {fileID: 5849585470670582855}
@@ -174,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 0}
+  _defaultScoreGradient: {fileID: 11400000, guid: e866aa796a9f40b4ca8ba4d848a76273, type: 2}
+  _bestScoreGradient: {fileID: 11400000, guid: eb123a5fdedebb04089887972a02f9f1, type: 2}
 --- !u!114 &5849585470235395596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8013374868282921155, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8013374868282921156, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
       propertyPath: m_Name

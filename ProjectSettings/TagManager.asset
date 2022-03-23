@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -42,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 2729060133
     locked: 0
+  - name: BackgroundParticles
+    uniqueID: 264865193
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -51,8 +53,8 @@ TagManager:
   - name: Bomb
     uniqueID: 2715665963
     locked: 0
-  - name: Particles
-    uniqueID: 264865193
+  - name: ForegroundParticles
+    uniqueID: 3772213749
     locked: 0
   - name: Foreground
     uniqueID: 1649435097

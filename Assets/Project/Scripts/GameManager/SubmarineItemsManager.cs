@@ -40,6 +40,6 @@ public class SubmarineItemsManager : MonoBehaviour
 
     private void Awake()
     {
-        _submarineItems = Resources.LoadAll<SubmarineItem>("");
+        _submarineItems = Resources.LoadAll<SubmarineItem>("SubmarineItems");
     }
 }

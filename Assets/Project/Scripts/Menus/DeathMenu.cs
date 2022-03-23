@@ -7,8 +7,11 @@ public class DeathMenu : MonoBehaviour
     [Header("Menu")]
     [SerializeField] private GameObject _menu;
     [SerializeField] private float _showMenuDelay;
-    [Space]
+    [Header("Score text")]
     [SerializeField] private TMP_Text _finalScoreText;
+    [SerializeField] private TMP_ColorGradient _defaultScoreGradient;
+    [SerializeField] private TMP_ColorGradient _bestScoreGradient;
+    [Space]
     [SerializeField] private TMP_Text _finalCrystalsText;
 
     private PlayerHealth _playerHealth;
@@ -35,8 +38,9 @@ public class DeathMenu : MonoBehaviour
 
     private void OnPlayerDied()
     {
-        _finalScoreText.text = "Score: " + _playerScore.Score;
-        _finalCrystalsText.text = "+ " + _playerCrystals.CrystalsCollected;
+        _finalScoreText.text = _playerScore.Score.ToString();
+        _finalScoreText.colorGradientPreset = _playerScore.IsBestScore ? _bestScoreGradient : _defaultScoreGradient;
+        _finalCrystalsText.text = $"+{_playerCrystals.CrystalsCollected}";
         StartCoroutine(ShowMenu());
     }
 

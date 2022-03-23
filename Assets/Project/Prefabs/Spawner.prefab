@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7647392189639595934}
   - component: {fileID: 8570200121848394743}
-  - component: {fileID: 8210100969691768466}
+  - component: {fileID: 991896745086511992}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -51,7 +51,7 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 0}
     weight: 1
---- !u!114 &8210100969691768466
+--- !u!114 &991896745086511992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebdc4b21a7d213409b02e3bc4237e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnable: {fileID: 0}
-  _spawnAreaSize: {x: 1, y: 50}
-  _spawnRate: 10
+  _object: {fileID: 0}
+  _poolLength: 0
+  _spawnAreaSize: {x: 0, y: 0}
+  _spawnRate: 0

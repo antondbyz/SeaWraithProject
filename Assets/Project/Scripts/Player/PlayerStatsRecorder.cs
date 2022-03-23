@@ -26,9 +26,9 @@ public class PlayerStatsRecorder : MonoBehaviour
     private void RecordStats()
     {
         StatsManager.CrystalsAmount += _crystals.CrystalsCollected;
-        if (_score.Score > StatsManager.MaxScore)
+        if (_score.IsBestScore)
         {
-            StatsManager.MaxScore = _score.Score;
+            StatsManager.BestScore = _score.Score;
         }
     }
 }

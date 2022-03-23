@@ -4,7 +4,6 @@ using static UnityEngine.ParticleSystem;
 public class PlayerHealth : MonoBehaviour
 {
     public event System.Action Died;
-    public bool IsAlive => _health > 0;
     public int Health
     {
         get => _health;
@@ -29,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    public bool IsAlive => _health > 0;
 
     [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private GameObject _gameUI;
@@ -44,25 +44,15 @@ public class PlayerHealth : MonoBehaviour
     private Collider2D _collider;
     private EmissionModule _emission;
 
+    public void TakeDamage() => Health--;
+
+    public void Die() => Health = 0;
+
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
         _emission = _smokeParticles.emission;
         _maxHealth = StatsManager.SubmarineStats.Armor;
         Health = _maxHealth;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Bomb bomb = other.GetComponent<Bomb>();
-        if(bomb != null)
-        {
-            bomb.Explode();
-            Health--;
-        }
-        else if(other.gameObject.CompareTag("Ground"))
-        {
-            Health = 0;
-        }
     }
 }

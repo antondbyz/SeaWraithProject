@@ -7,12 +7,12 @@ public class PositionConstraintOffset : MonoBehaviour
     [SerializeField] private MinMaxRange<Vector2> _offsetRange; 
 
     private PositionConstraint _constraint;
-    private GameSpeed _gameSpeed;
+    private GameSpeedController _gameSpeed;
 
     private void Awake()
     {
         _constraint = GetComponent<PositionConstraint>();
-        _gameSpeed = ObjectsFinder.FindPlayer().GetComponent<GameSpeed>();
+        _gameSpeed = ObjectsFinder.FindPlayer().GetComponent<GameSpeedController>();
     }
 
     private void Update()

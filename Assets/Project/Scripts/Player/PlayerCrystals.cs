@@ -9,7 +9,7 @@ public class PlayerCrystals : MonoBehaviour
         private set
         {
             _crystalsCollected = value;
-            _crystalsText.text = _crystalsCollected.ToString();
+            _crystalsText.text = (StatsManager.CrystalsAmount + _crystalsCollected).ToString();
         }
     }
 
@@ -17,13 +17,13 @@ public class PlayerCrystals : MonoBehaviour
 
     private int _crystalsCollected;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void CollectCrystal()
     {
-        Crystal crystal = other.GetComponent<Crystal>();
-        if(crystal != null)
-        {
-            CrystalsCollected++;
-            crystal.Collect();
-        }
+        CrystalsCollected++;
+    }
+
+    private void Awake()
+    {
+        CrystalsCollected = 0;
     }
 }

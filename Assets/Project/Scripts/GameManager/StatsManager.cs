@@ -4,12 +4,12 @@ public class StatsManager : MonoBehaviour
 {
     public static event System.Action CrystalsChanged;
 
-    public static int MaxScore
+    public static int BestScore
     {
-        get => _maxScore;
+        get => _bestScore;
         set
         {
-            if (value > _maxScore) _maxScore = value;
+            if (value > _bestScore) _bestScore = value;
         }
     }
     public static int CrystalsAmount 
@@ -24,7 +24,7 @@ public class StatsManager : MonoBehaviour
     }
     public static SubmarineStats SubmarineStats => _submarineStats;
 
-    private static int _maxScore;
+    private static int _bestScore;
     private static int _crystalsAmount;
     private static SubmarineStats _submarineStats;
 

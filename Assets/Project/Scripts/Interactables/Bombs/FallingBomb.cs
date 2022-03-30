@@ -3,13 +3,14 @@
 [RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class FallingBomb : Bomb
 {
-    [SerializeField] private MinMaxRange<float> _gravityRange;
     [SerializeField] private MinMaxRange<float> _torqueRange;
+    [SerializeField] [Range(1, 10)] private float _waterFriction;
 
     private SpriteRenderer _renderer;
     private Rigidbody2D _rigidbody;
     private BoxCollider2D _collider;
     private ParticleSystem[] _particles;
+    private float _startGravity;
 
     public override void Disappear()
     {
@@ -24,7 +25,7 @@ public class FallingBomb : Bomb
     protected override void Initialize()
     {
         ResetMovement();
-        _rigidbody.gravityScale = Random.Range(_gravityRange.Min, _gravityRange.Max);
+        _rigidbody.gravityScale = _startGravity;
         float torque = Random.Range(_torqueRange.Min, _torqueRange.Max);
         torque = Random.Range(0f, 1f) > 0.5f ? -torque : torque;
         _rigidbody.AddTorque(torque);
@@ -42,6 +43,16 @@ public class FallingBomb : Bomb
         _renderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<BoxCollider2D>();
         _particles = GetComponentsInChildren<ParticleSystem>();
+        _startGravity = _rigidbody.gravityScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Water"))
+        {
+            _rigidbody.gravityScale = 0; 
+            _rigidbody.velocity /= _waterFriction;
+        }
     }
 
     private void ResetMovement()

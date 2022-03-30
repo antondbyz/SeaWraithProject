@@ -127,7 +127,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.4
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -146,14 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
-  _bomb: {fileID: 0}
-  _bubblesParticles: {fileID: 8013374868295178420}
-  _gravityRange:
-    Min: 0.2
-    Max: 0.4
   _torqueRange:
     Min: 45
     Max: 90
+  _waterFriction: 3
 --- !u!1001 &13437046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,10 +234,5 @@ PrefabInstance:
 --- !u!4 &8013374868295178423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8013374868282921153, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
-  m_PrefabInstance: {fileID: 13437046}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8013374868295178420 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8013374868282921154, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
   m_PrefabInstance: {fileID: 13437046}
   m_PrefabAsset: {fileID: 0}

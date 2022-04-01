@@ -2,17 +2,15 @@ using UnityEngine;
 
 public abstract class Bomb : MonoBehaviour, IInteractable, ISpawnable
 {
+    public static event System.Action Exploded;
+
     [SerializeField] private GameObject _explosionEffect;
 
-    public void Interact(GameObject interactor)
+    public void Interact()
     {
-        PlayerHealth playerHealth = interactor.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage();
-            Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-            Disappear();
-        }
+        Exploded?.Invoke();
+        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        Disappear();
     }
 
     public void Spawn(Vector2 position)

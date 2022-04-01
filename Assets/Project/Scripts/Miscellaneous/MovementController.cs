@@ -24,7 +24,7 @@ public class MovementController : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _gameSpeed = ObjectsFinder.FindPlayer().GetComponent<GameSpeedController>();
+        _gameSpeed = ObjectsFinder.FindGameController().GetComponent<GameSpeedController>();
         UpdateMovement();
     }
 

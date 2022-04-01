@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerHealth))]
 public class GameSpeedController : MonoBehaviour
 {
     public float Speed { get; private set; }
@@ -11,7 +10,7 @@ public class GameSpeedController : MonoBehaviour
 
     private void Awake()
     {
-        _health = GetComponent<PlayerHealth>();
+        _health = ObjectsFinder.FindPlayer().GetComponent<PlayerHealth>();
     }
 
     private void OnEnable()

@@ -12,7 +12,7 @@ public class PositionConstraintOffset : MonoBehaviour
     private void Awake()
     {
         _constraint = GetComponent<PositionConstraint>();
-        _gameSpeed = ObjectsFinder.FindPlayer().GetComponent<GameSpeedController>();
+        _gameSpeed = ObjectsFinder.FindGameController().GetComponent<GameSpeedController>();
     }
 
     private void Update()

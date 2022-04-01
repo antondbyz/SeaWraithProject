@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour, IInteractable, ISpawnable
 {
-    public void Interact(GameObject interactor)
+    public static event System.Action Collected;
+
+    public void Interact()
     {
-        PlayerCrystals playerCrystals = interactor.GetComponent<PlayerCrystals>();
-        if(playerCrystals != null)
-        {
-            playerCrystals.CollectCrystal();    
-            Disappear();
-        }
+        Collected?.Invoke();
+        Disappear();
     }
 
     public void Disappear()

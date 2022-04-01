@@ -1,9 +1,8 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerHealth), typeof(InputController))]
+[RequireComponent(typeof(PlayerHealth))]
 public class PlayerController : MovementController
 {
-    
     [SerializeField] private float _waterLevel;
     [Header("Rotation")]
     [SerializeField] private int _maxRotationAngle;
@@ -22,7 +21,7 @@ public class PlayerController : MovementController
     {
         base.Awake();
         _health = GetComponent<PlayerHealth>();
-        _input = GetComponent<InputController>();
+        _input = ObjectsFinder.FindGameController().GetComponent<InputController>();
         _rotateSpeed = StatsManager.SubmarineStats.Mobility;
     }
 
@@ -56,11 +55,6 @@ public class PlayerController : MovementController
             UpdateVelocity();
             _rigidbody.velocity += _sinkVelocity;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        other.GetComponent<IInteractable>()?.Interact(gameObject);
     }
 
     private void OnDrawGizmosSelected()

@@ -12,24 +12,21 @@ public class PlayerInteractor : MonoBehaviour
         _crystals = GetComponent<PlayerCrystals>();
     }
 
-    private void OnEnable()
-    {
-        Bomb.Exploded += _health.TakeDamage;
-        Crystal.Collected += _crystals.CollectCrystal;
-    }
-
-    private void OnDisable()
-    {
-        Bomb.Exploded -= _health.TakeDamage;
-        Crystal.Collected -= _crystals.CollectCrystal;
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
         if(interactable != null)
         {
             interactable.Interact();
+            switch(interactable.Type)
+            {
+                case InteractableType.Bomb:
+                    _health.TakeDamage();
+                    break;
+                case InteractableType.Crystal:
+                    _crystals.CollectCrystal();
+                    break;
+            }
         }
         else if(other.CompareTag("Ground"))
         {

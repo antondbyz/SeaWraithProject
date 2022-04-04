@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7c419f1ea3a0a46b387468745911bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
+  _explosionEffect: {fileID: 8659539022078595014, guid: 3e590fb173daf924da5d1242777da389, type: 3}
   _scaleRange:
     Min: 2.5
     Max: 3

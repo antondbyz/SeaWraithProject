@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerHealth))]
 public class PlayerController : MovementController
 {
-    [SerializeField] private float _waterLevel;
-    [Header("Rotation")]
     [SerializeField] private int _maxRotationAngle;
+    [Header("WaterLevel")]
+    [SerializeField] private float _waterLevel;
     [SerializeField] private float _alignToWaterSpeed;
     [Header("Sink")]
     [SerializeField] private float _sinkGravity;

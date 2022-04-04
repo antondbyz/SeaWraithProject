@@ -2,13 +2,12 @@ using UnityEngine;
 
 public abstract class Bomb : MonoBehaviour, IInteractable, ISpawnable
 {
-    public static event System.Action Exploded;
+    public InteractableType Type => InteractableType.Bomb;
 
     [SerializeField] private GameObject _explosionEffect;
 
     public void Interact()
     {
-        Exploded?.Invoke();
         Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         Disappear();
     }

@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour, IInteractable, ISpawnable
 {
-    public static event System.Action Collected;
+    public InteractableType Type => InteractableType.Crystal;
 
     public void Interact()
     {
-        Collected?.Invoke();
         Disappear();
     }
 

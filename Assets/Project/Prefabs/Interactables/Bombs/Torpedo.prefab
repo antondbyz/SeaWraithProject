@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cc1e7e68eb35147996b254f51c09a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 827670588024696306, guid: 60afa4c497488d34f891d1a164e89a1f, type: 3}
+  _explosionEffect: {fileID: 8659539022078595014, guid: 3e590fb173daf924da5d1242777da389, type: 3}
 --- !u!114 &9210242502160281458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedRange:
     Min: 55
-    Max: 80
+    Max: 100
   _direction: {x: 1, y: 0}
 --- !u!1001 &962958627
 PrefabInstance:

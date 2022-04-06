@@ -48,10 +48,3 @@ public class StatsManager : MonoBehaviour
         _submarineStats = SubmarineItemsManager.CurrentSubmarineItem.SubmarineStats;
     }
 }
-
-[System.Serializable]
-public struct SubmarineStats
-{
-    public int Armor;
-    public float Mobility;
-}

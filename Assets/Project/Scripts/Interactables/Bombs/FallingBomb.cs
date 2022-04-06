@@ -5,6 +5,7 @@ public class FallingBomb : Bomb
 {
     [SerializeField] private MinMaxRange<float> _torqueRange;
     [SerializeField] [Range(1, 10)] private float _waterFriction;
+    [SerializeField] private GameObject _waterSplashEffect;
 
     private SpriteRenderer _renderer;
     private Rigidbody2D _rigidbody;
@@ -50,6 +51,7 @@ public class FallingBomb : Bomb
     {
         if(other.CompareTag("Water"))
         {
+            Instantiate(_waterSplashEffect, transform.position, Quaternion.identity);
             _rigidbody.gravityScale = 0; 
             _rigidbody.velocity /= _waterFriction;
         }

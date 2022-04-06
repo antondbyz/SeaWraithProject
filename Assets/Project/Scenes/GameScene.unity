@@ -333,6 +333,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102717018}
   m_CullTransparentMesh: 1
+--- !u!1 &125753262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5849585471462095957, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
+  m_PrefabInstance: {fileID: 5849585470235395594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &125753263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125753262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3b3186ae45ad442b08e5ccd3c23c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &192069253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1175,58 +1192,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 708935673}
     m_Modifications:
-    - target: {fileID: 3692229225515659428, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229225515659428, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229225515659428, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229225515659428, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229225515659428, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140861, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140861, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140861, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140861, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140862, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140862, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_fontSize
-      value: 67.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140862, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294954086
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229226522140862, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3692229227030480750, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
       propertyPath: m_Name
       value: CrystalsAmount
@@ -1258,14 +1223,6 @@ PrefabInstance:
     - target: {fileID: 3692229227030480751, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229227030480751, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 3692229227030480751, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 3692229227030480751, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1333,49 +1290,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3692229227030480751, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
   m_PrefabInstance: {fileID: 395186700}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &395186703 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3692229227030480750, guid: de4b8349bed18d04ab0f4e7f60d3b488, type: 3}
-  m_PrefabInstance: {fileID: 395186700}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &395186704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395186703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5b06909f69b39e4f893c8aa36e737bf, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &395186705
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395186703}
-  m_CullTransparentMesh: 1
 --- !u!224 &495534386 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8958739283181150307, guid: 76f33f26406b7f64e9f91362d5c2889d, type: 3}
@@ -2877,6 +2791,14 @@ PrefabInstance:
       propertyPath: _crystalsText
       value: 
       objectReference: {fileID: 395186701}
+    - target: {fileID: 5849585471462095957, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
+      propertyPath: m_Name
+      value: SubmarineRenderer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849585471462095979, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 87c4793db15ecd44b94e8d7ae67307a2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
 --- !u!1 &5849585470235395595 stripped

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1579301333
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58d41cbccbf92234e9a58adf811512a7, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
     Min: 45
     Max: 90
   _waterFriction: 3
+  _waterSplashEffect: {fileID: 69341398071108333, guid: db1cc73198883c040a70a5c106f50bbf, type: 3}
 --- !u!1001 &13437046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8013374868282921155, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8013374868282921156, guid: a9002b00e2190294692b842ff7f97c48, type: 3}
       propertyPath: m_Name

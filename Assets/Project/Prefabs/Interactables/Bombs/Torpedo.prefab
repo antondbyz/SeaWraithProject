@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedRange:
     Min: 55
-    Max: 100
+    Max: 90
   _direction: {x: 1, y: 0}
 --- !u!1001 &962958627
 PrefabInstance:

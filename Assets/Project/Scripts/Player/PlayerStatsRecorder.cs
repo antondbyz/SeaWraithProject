@@ -25,10 +25,10 @@ public class PlayerStatsRecorder : MonoBehaviour
 
     private void RecordStats()
     {
-        StatsManager.CrystalsAmount += _crystals.CrystalsCollected;
+        PlayerStatsManager.CrystalsAmount += _crystals.CrystalsCollected;
         if (_score.IsBestScore)
         {
-            StatsManager.BestScore = _score.Score;
+            PlayerStatsManager.BestScore = _score.Score;
         }
     }
 }

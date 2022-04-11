@@ -8,6 +8,6 @@ public class SubmarineRenderer : MonoBehaviour
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        _renderer.sprite = StatsManager.SubmarineStats.Sprite;
+       // _renderer.sprite = PlayerStatsManager.SubmarineStats.Sprite;
     }
 }

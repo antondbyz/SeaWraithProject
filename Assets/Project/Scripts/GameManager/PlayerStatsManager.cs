@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StatsManager : MonoBehaviour
+public class PlayerStatsManager : MonoBehaviour
 {
     public static event System.Action CrystalsChanged;
 
@@ -22,11 +22,10 @@ public class StatsManager : MonoBehaviour
             if (oldValue != _crystalsAmount) CrystalsChanged?.Invoke();
         }
     }
-    public static SubmarineStats SubmarineStats => _submarineStats;
+    public static SubmarineStats SubmarineStats { get; private set; }
 
     private static int _bestScore;
     private static int _crystalsAmount;
-    private static SubmarineStats _submarineStats;
 
     private void Awake()
     {
@@ -45,6 +44,6 @@ public class StatsManager : MonoBehaviour
 
     private void UpdateSubmarineStats()
     {
-        _submarineStats = SubmarineItemsManager.CurrentSubmarineItem.SubmarineStats;
+        SubmarineStats = SubmarineItemsManager.CurrentSubmarineItem.SubmarineStats;
     }
 }

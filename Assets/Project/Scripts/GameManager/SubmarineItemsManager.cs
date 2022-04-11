@@ -4,7 +4,6 @@ public class SubmarineItemsManager : MonoBehaviour
 {
     public static event System.Action CurrentSubmarineChanged;
 
-    public static SubmarineItem[] SubmarineItems => _submarineItems;
     public static SubmarineItem CurrentSubmarineItem => _submarineItems[_currentSubmarineItemIndex];
     public static SubmarineItem NextSubmarineItem
     {
@@ -20,23 +19,18 @@ public class SubmarineItemsManager : MonoBehaviour
     public static int CurrentSubmarineItemIndex
     {
         get => _currentSubmarineItemIndex;
-        private set
+        set
         {
-            _currentSubmarineItemIndex = value;
-            CurrentSubmarineChanged?.Invoke();
+            if(value < _submarineItems.Length && value >= 0)
+            {
+                _currentSubmarineItemIndex = value;
+                CurrentSubmarineChanged?.Invoke();
+            }
         }
     }
 
     private static SubmarineItem[] _submarineItems;
     private static int _currentSubmarineItemIndex;
-
-    public static void SetCurrentSubmarineItemToNext()
-    {
-        if(_currentSubmarineItemIndex < _submarineItems.Length - 1)
-        {
-            CurrentSubmarineItemIndex++;
-        }
-    }
 
     private void Awake()
     {

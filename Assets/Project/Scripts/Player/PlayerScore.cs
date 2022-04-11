@@ -24,7 +24,7 @@ public class PlayerScore : MonoBehaviour
     private void Update()
     {
         _score = (int)(transform.position.x - _startXPos);
-        if(!_isBestScore && _score > StatsManager.BestScore)
+        if(!_isBestScore && _score > PlayerStatsManager.BestScore)
         {
             _scoreText.colorGradientPreset = _bestScoreGradient;
             _isBestScore = true;

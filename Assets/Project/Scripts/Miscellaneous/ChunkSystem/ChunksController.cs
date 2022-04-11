@@ -6,12 +6,6 @@ public class ChunksController : MonoBehaviour
     private Transform _lastChunk;
     private Chunk[] _childChunks;
 
-    public void OnChunkBecameInvisible(Transform chunk)
-    {
-        chunk.position = new Vector2(_lastChunk.position.x + _offset, chunk.position.y);
-        _lastChunk = chunk;
-    }
-
     private void Awake()
     {
         _childChunks = transform.GetComponentsInChildren<Chunk>();
@@ -33,5 +27,11 @@ public class ChunksController : MonoBehaviour
         {
             _childChunks[i].BecameInvisible -= OnChunkBecameInvisible;
         }
+    }
+
+    private void OnChunkBecameInvisible(Transform chunk)
+    {
+        chunk.position = new Vector2(_lastChunk.position.x + _offset, chunk.position.y);
+        _lastChunk = chunk;
     }
 }

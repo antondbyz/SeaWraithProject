@@ -7,6 +7,6 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        _maxScoreText.text = $"Best score: {StatsManager.BestScore}";
+        _maxScoreText.text = $"Best score: {PlayerStatsManager.BestScore}";
     }
 }

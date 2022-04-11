@@ -52,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _collider = GetComponent<Collider2D>();
         _emission = _smokeParticles.emission;
-        _maxHealth = StatsManager.SubmarineStats.Armor;
+        _maxHealth = PlayerStatsManager.SubmarineStats.Armor;
         Health = _maxHealth;
     }
 }

@@ -9,7 +9,7 @@ public class PlayerCrystals : MonoBehaviour
         private set
         {
             _crystalsCollected = value;
-            _crystalsText.text = (PlayerStatsManager.CrystalsAmount + _crystalsCollected).ToString();
+            _crystalsText.text = (PlayerManager.CrystalsAmount + _crystalsCollected).ToString();
         }
     }
 

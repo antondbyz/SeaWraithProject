@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 868a7a508fb786c4f81fad0b50779f41, type: 3}
-  m_Name: Level0
+  m_Name: Stats2
   m_EditorClassIdentifier: 
-  _price: 0
-  _submarineStats:
-    Armor: 2
-    Mobility: 40
-    Sprite: {fileID: 21300000, guid: 236ebbf969ef66c48b2ed9b15ed8da71, type: 3}
+  _price: 100
+  _armor: 4
+  _mobility: 55

@@ -14,7 +14,7 @@ public class PlayerController : MovementController
 
     private PlayerHealth _health;
     private InputController _input;
-    private float _rotateSpeed;
+    private int _rotateSpeed;
     private Vector2 _sinkVelocity;
 
     protected override void Awake()
@@ -22,7 +22,7 @@ public class PlayerController : MovementController
         base.Awake();
         _health = GetComponent<PlayerHealth>();
         _input = ObjectsFinder.FindGameController().GetComponent<InputController>();
-        _rotateSpeed = PlayerStatsManager.SubmarineStats.Mobility;
+        _rotateSpeed = SubmarineStatsManager.CurrentStatsObject.Mobility;
     }
 
     private void FixedUpdate() 

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 868a7a508fb786c4f81fad0b50779f41, type: 3}
-  m_Name: Level2
+  m_Script: {fileID: 11500000, guid: eefc50ea78db9d5409faa4e4f4727869, type: 3}
+  m_Name: Paint0
   m_EditorClassIdentifier: 
-  _price: 100
-  _submarineStats:
-    Armor: 4
-    Mobility: 55
+  _price: 0
+  _paint: {fileID: 21300000, guid: 236ebbf969ef66c48b2ed9b15ed8da71, type: 3}

@@ -2,43 +2,22 @@ using UnityEngine;
 
 public class SelectableItemsController : MonoBehaviour
 {
+    public event System.Action CurrentItemChanged;
     public SelectableItem CurrentItem
     {
         get => _currentItem;
         private set
         {
             if(_currentItem != null) _currentItem.IsSelected = false;
+            bool isNewValue = _currentItem != value;
             _currentItem = value;
+            if(isNewValue) CurrentItemChanged?.Invoke();
         }
     }
 
-    private SelectableItem[] _items;
     private SelectableItem _currentItem;
 
-    private void Awake()
-    {
-        _items = GetComponentsInChildren<SelectableItem>();
-        CurrentItem = _items[0];
-        CurrentItem.IsSelected = true;
-    }
-
-    private void OnEnable()
-    {
-        for(int i = 0; i < _items.Length; i++)
-        {
-            _items[i].Selected += OnItemSelected;
-        }    
-    }
-
-    private void OnDisable()
-    {
-        for(int i = 0; i < _items.Length; i++)
-        {
-            _items[i].Selected -= OnItemSelected;
-        }
-    }
-
-    private void OnItemSelected(SelectableItem item)
+    public void OnItemSelected(SelectableItem item)
     {
         CurrentItem = item;
     }

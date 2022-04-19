@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static event System.Action CrystalsChanged;
-
     public static int BestScore
     {
         get => _bestScore;
@@ -24,7 +23,12 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
     private static int _bestScore;
     private static int _crystalsAmount;
+    [SerializeField] private int _startCrystalsAmount;
+
+    private void Awake()
+    {
+        CrystalsAmount = _startCrystalsAmount;
+    }
 }

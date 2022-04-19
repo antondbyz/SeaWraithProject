@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 3606904618021392545}
   - component: {fileID: 3606904618021392547}
   - component: {fileID: 3606904618021392546}
-  - component: {fileID: 1320693629137019801}
   - component: {fileID: 3162348096989543218}
   m_Layer: 5
   m_Name: PaintItem
@@ -232,20 +231,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1320693629137019801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3606904618021392544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d024f65d3ac92b41bad39fca583eb81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _selectedColor: {r: 0, g: 1, b: 0.0041310787, a: 1}
 --- !u!114 &3162348096989543218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e4423a7da7e5946b01ae4aafcda162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _normalColor: {r: 0, g: 0, b: 0, a: 1}
+  _selectedColor: {r: 0, g: 1, b: 0.003921569, a: 1}
   _submarinePaintPreview: {fileID: 3606904617374525317}
   _priceLabel: {fileID: 8082565353371159592}
   _priceText: {fileID: 963414394695338751}

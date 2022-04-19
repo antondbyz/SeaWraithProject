@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class SelectableItem : MonoBehaviour, IPointerClickHandler
+public abstract class SelectableItem : MonoBehaviour, IPointerClickHandler
 {
     public bool IsSelected
     {
@@ -12,7 +12,6 @@ public class SelectableItem : MonoBehaviour, IPointerClickHandler
         {
             _isSelected = value;
             _image.color = _isSelected ? _selectedColor : _normalColor; 
-            if(_isSelected) _controller.OnItemSelected(this);
         }
     }
 
@@ -25,13 +24,13 @@ public class SelectableItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!_isSelected) IsSelected = true;
+        if(!_isSelected) _controller.SelectItem(this);
     }
 
     private void Awake()
     {
         _image = GetComponent<Image>();
         _controller = transform.parent.GetComponent<SelectableItemsController>();
-        IsSelected = transform.GetSiblingIndex() == 0;
+        IsSelected = false;
     }
 }

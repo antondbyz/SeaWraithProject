@@ -333,23 +333,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102717018}
   m_CullTransparentMesh: 1
---- !u!1 &125753262 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5849585471462095957, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
-  m_PrefabInstance: {fileID: 5849585470235395594}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &125753263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125753262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3b3186ae45ad442b08e5ccd3c23c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &192069253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1123,7 +1106,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1565907163
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 990c349042757bc49bc93ec0f34cf7a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2691,14 +2674,6 @@ PrefabInstance:
       propertyPath: _crystalsText
       value: 
       objectReference: {fileID: 395186701}
-    - target: {fileID: 5849585471462095957, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
-      propertyPath: m_Name
-      value: SubmarineRenderer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5849585471462095979, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 87c4793db15ecd44b94e8d7ae67307a2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ebbb10234af4fa408b41d4d153c1e1d, type: 3}
 --- !u!1 &5849585470235395595 stripped
@@ -2758,7 +2733,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1565907163
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c3766fa2bbc4f5747882161de613ea40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnvironmentAtlas
+  m_Name: EnvironmentContentAtlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -47,5 +47,5 @@ SpriteAtlas:
   - StaticBomb
   - FallingBomb
   m_RenderDataMap: {}
-  m_Tag: EnvironmentAtlas
+  m_Tag: EnvironmentContentAtlas
   m_IsVariant: 0

@@ -37,12 +37,14 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 607655820c8299b41a1de1f512bf2694, type: 3}
   - {fileID: 21300000, guid: 5b56a2a2401a6f146954db4e9bae8332, type: 3}
   - {fileID: 21300000, guid: 3628d446500a90b4c92a2e00585c2a50, type: 3}
   - {fileID: 21300000, guid: cdf00f98e3d043344bae9b5a9d8b6e14, type: 3}
   - {fileID: 21300000, guid: b5b06909f69b39e4f893c8aa36e737bf, type: 3}
   - {fileID: 21300000, guid: 3e0c79e91952bee47a6686ca6dd5c898, type: 3}
   m_PackedSpriteNamesToIndex:
+  - GearIcon
   - Arrow
   - Triangle
   - Rect

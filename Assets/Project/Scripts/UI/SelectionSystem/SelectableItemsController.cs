@@ -12,7 +12,6 @@ public abstract class SelectableItemsController : MonoBehaviour
             _currentItem.IsSelected = true;
         }
     }
-
     private SelectableItem _currentItem;
 
     public void SelectItem(SelectableItem item)

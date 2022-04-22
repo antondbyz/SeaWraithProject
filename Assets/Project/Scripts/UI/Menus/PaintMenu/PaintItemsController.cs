@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class PaintItemsController : SelectableItemsController
 {
     public event System.Action ItemSelected;
@@ -21,10 +22,6 @@ public class PaintItemsController : SelectableItemsController
             newItem.Initialize(SubmarinePaintsManager.PaintObjects[i], i);
             _paintItems[i] = newItem;
         }
-    }
-
-    private void OnEnable()
-    {
-        SelectItem(_paintItems[SubmarinePaintsManager.CurrentPaintItemIndex]);
+        SelectItem(_paintItems[0]);
     }
 }

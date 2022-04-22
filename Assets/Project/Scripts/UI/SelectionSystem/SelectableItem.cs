@@ -14,10 +14,8 @@ public abstract class SelectableItem : MonoBehaviour, IPointerClickHandler
             _image.color = _isSelected ? _selectedColor : _normalColor; 
         }
     }
-
     [SerializeField] private Color _normalColor = Color.white;
     [SerializeField] private Color _selectedColor = Color.white;
-
     private Image _image;
     private SelectableItemsController _controller;
     private bool _isSelected;

@@ -34,11 +34,9 @@ public class UpgradeMenu : MonoBehaviour
         _notEnoughCrystalsLabel.SetActive(!isEnoughCrystals);
         _priceText.text = $"{SubmarineStatsManager.NextStatsObject.Price}<sprite name=Crystal>";
         _priceText.color = isEnoughCrystals ? Color.green : Color.red;
-        int currentArmor = SubmarineStatsManager.CurrentStatsObject.Armor;
-        int currentMobility = SubmarineStatsManager.CurrentStatsObject.Mobility;
-        int armorProfit = SubmarineStatsManager.NextStatsObject.Armor - currentArmor;
-        int mobilityProfit = SubmarineStatsManager.NextStatsObject.Mobility - currentMobility;
-        _upgradeInfo.text = $"Armor: {currentArmor} <color=green>(+{armorProfit})</color>" +
-                            $"\nMobility: {currentMobility} <color=green>(+{mobilityProfit})</color>";
+        int armorProfit = SubmarineStatsManager.NextStatsObject.Armor - SubmarineStatsManager.CurrentStatsObject.Armor;
+        int mobilityProfit = SubmarineStatsManager.NextStatsObject.Mobility - SubmarineStatsManager.CurrentStatsObject.Mobility;
+        _upgradeInfo.text = $"Armor: <color=green>(+{armorProfit})</color>" +
+                            $"\nMobility: <color=green>(+{mobilityProfit})</color>";
     }
 }

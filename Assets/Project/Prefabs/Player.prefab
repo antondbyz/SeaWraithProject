@@ -106,7 +106,7 @@ MonoBehaviour:
     Max: 50
   _direction: {x: 1, y: 0}
   _maxRotationAngle: 40
-  _waterLevel: 17.5
+  _waterLevel: 17
   _alignToWaterSpeed: 90
   _sinkGravity: 0.8
   _sinkRotateSpeed: 10

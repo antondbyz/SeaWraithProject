@@ -741,6 +741,8 @@ MonoBehaviour:
   _currentSubmarineStatsText: {fileID: 1488950010}
   _currentSubmarinePreview: {fileID: 80532346}
   _maxLevelLabel: {fileID: 1680652876}
+  _upgradeItem: {fileID: 709882896}
+  _upgradeButton: {fileID: 1713331424}
 --- !u!1 &421682574 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 469480335998624939, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
@@ -3677,6 +3679,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6742218428138924858, guid: 2c1f5a25859129e46b955c2d94f57d55, type: 3}
   m_PrefabInstance: {fileID: 1711380052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1713331424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 469480335998624939, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
+  m_PrefabInstance: {fileID: 1715940923}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1715940923
 PrefabInstance:

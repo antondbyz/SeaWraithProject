@@ -10,9 +10,9 @@ public class PaintMenu : MonoBehaviour
     public void BuySelectedSubmarinePaint()
     {
         PaintItem selectedItem = (PaintItem)_paintsController.SelectedItem;
-        if(PlayerManager.CrystalsAmount >= selectedItem.PaintObject.Price)
+        if(PlayerProfile.CrystalsAmount >= selectedItem.PaintObject.Price)
         {
-            PlayerManager.CrystalsAmount -= selectedItem.PaintObject.Price;
+            PlayerProfile.CrystalsAmount -= selectedItem.PaintObject.Price;
             SubmarinePaintsManager.MarkItemAsBought(selectedItem);
             UseSelectedSubmarinePaint();
         }
@@ -29,14 +29,14 @@ public class PaintMenu : MonoBehaviour
         UpdateUI();
         _paintsController.ItemSelected += UpdateUI;
         SubmarinePaintsManager.ItemsChanged += UpdateUI;
-        PlayerManager.CrystalsChanged -= UpdateUI;
+        PlayerProfile.CrystalsChanged -= UpdateUI;
     }
 
     private void OnDisable()
     {
         _paintsController.ItemSelected -= UpdateUI;
         SubmarinePaintsManager.ItemsChanged -= UpdateUI;
-        PlayerManager.CrystalsChanged -= UpdateUI;
+        PlayerProfile.CrystalsChanged -= UpdateUI;
     }
 
     private void UpdateUI()

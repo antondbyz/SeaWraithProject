@@ -13,16 +13,16 @@ public class CrystalsText : MonoBehaviour
     private void OnEnable()
     {
         UpdateText();
-        PlayerManager.CrystalsChanged += UpdateText;
+        PlayerProfile.CrystalsChanged += UpdateText;
     }
 
     private void OnDisable()
     {
-        PlayerManager.CrystalsChanged -= UpdateText;
+        PlayerProfile.CrystalsChanged -= UpdateText;
     }
 
     private void UpdateText() 
     {
-        _text.text = PlayerManager.CrystalsAmount.ToString();
+        _text.text = PlayerProfile.CrystalsAmount.ToString();
     }
 }

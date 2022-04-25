@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStatsRecorder : MonoBehaviour
+public class PlayerProfileRecorder : MonoBehaviour
 {
     private PlayerCrystals _crystals;
     private PlayerScore _score;
@@ -25,10 +25,10 @@ public class PlayerStatsRecorder : MonoBehaviour
 
     private void RecordStats()
     {
-        PlayerManager.CrystalsAmount += _crystals.CrystalsCollected;
+        PlayerProfile.CrystalsAmount += _crystals.CrystalsCollected;
         if (_score.IsBestScore)
         {
-            PlayerManager.BestScore = _score.Score;
+            PlayerProfile.BestScore = _score.Score;
         }
     }
 }

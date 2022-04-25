@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerProfile : MonoBehaviour
 {
     public static event System.Action CrystalsChanged;
     public static int BestScore
@@ -29,6 +29,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        _bestScore = SaveData.BestScore;
+        _crystalsAmount = SaveData.CrystalsAmount;
         CrystalsAmount = _startCrystalsAmount;
     }
 }

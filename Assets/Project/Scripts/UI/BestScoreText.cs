@@ -5,6 +5,6 @@ public class BestScoreText : MonoBehaviour
 {
     private void Awake()
     {
-        GetComponent<TMP_Text>().text = $"Best score: {PlayerManager.BestScore}";
+        GetComponent<TMP_Text>().text = $"Best score: {PlayerProfile.BestScore}";
     }
 }

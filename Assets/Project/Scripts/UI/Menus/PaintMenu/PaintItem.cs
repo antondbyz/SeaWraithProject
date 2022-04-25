@@ -7,8 +7,8 @@ public class PaintItem : SelectableItem
     public SubmarinePaintObject PaintObject { get; private set; }
     public int Index { get; private set; }
     public bool IsBought => SubmarinePaintsManager.IsItemBought(this);
-    public bool IsCurrent => SubmarinePaintsManager.CurrentPaintItemIndex == Index;
-    public bool IsEnoughtCrystalsToBuy => PlayerManager.CrystalsAmount >= PaintObject.Price;
+    public bool IsCurrent => SubmarinePaintsManager.CurrentObjectIndex == Index;
+    public bool IsEnoughtCrystalsToBuy => PlayerProfile.CrystalsAmount >= PaintObject.Price;
     [SerializeField] private Image _submarinePaintPreview;
     [Header("Price")]
     [SerializeField] private GameObject _priceLabel;
@@ -32,13 +32,13 @@ public class PaintItem : SelectableItem
     {
         if(_isInitialized) UpdateUI();
         SubmarinePaintsManager.ItemsChanged += UpdateUI;
-        PlayerManager.CrystalsChanged += UpdateUI;
+        PlayerProfile.CrystalsChanged += UpdateUI;
     }
 
     private void OnDisable()
     {
         SubmarinePaintsManager.ItemsChanged -= UpdateUI;
-        PlayerManager.CrystalsChanged -= UpdateUI;
+        PlayerProfile.CrystalsChanged -= UpdateUI;
     }
 
     private void UpdateUI()

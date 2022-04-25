@@ -4,31 +4,32 @@ public class SubmarineStatsManager : MonoBehaviour
 {
     public static event System.Action CurrentStatsObjectChanged;
     public static SubmarineStatsObject[] StatsObjects { get; private set; }
-    public static int CurrentStatsObjectIndex { get; private set; }
-    public static SubmarineStatsObject CurrentStatsObject => StatsObjects[CurrentStatsObjectIndex];
+    public static SubmarineStatsObject CurrentStatsObject => StatsObjects[CurrentObjectIndex];
     public static SubmarineStatsObject NextStatsObject
     {
         get
         {
-            if (CurrentStatsObjectIndex < StatsObjects.Length - 1)
+            if (CurrentObjectIndex < StatsObjects.Length - 1)
             {
-                return StatsObjects[CurrentStatsObjectIndex + 1];
+                return StatsObjects[CurrentObjectIndex + 1];
             }
             else return null;
         }
     }
+    public static int CurrentObjectIndex { get; private set; }
 
     public static void UpgradeCurrentStatsObject() 
     {
-        if(CurrentStatsObjectIndex < (StatsObjects.Length - 1))
+        if(SaveData.CurrentSubmarineStatsIndex < (StatsObjects.Length - 1))
         {
-            CurrentStatsObjectIndex++;
+            CurrentObjectIndex++;
             CurrentStatsObjectChanged?.Invoke();
         }
     }
 
     private void Awake()
     {
+        CurrentObjectIndex = SaveData.CurrentSubmarineStatsIndex;
         StatsObjects = Resources.LoadAll<SubmarineStatsObject>("SubmarineObjects/SubmarineStats");
     }
 }

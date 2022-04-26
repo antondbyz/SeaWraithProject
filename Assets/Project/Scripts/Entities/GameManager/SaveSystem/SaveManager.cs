@@ -1,15 +1,23 @@
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEditor;
 
 [DefaultExecutionOrder(-1)]
-public class SaveManager : MonoBehaviour
+public class SaveManager : Singleton<SaveManager>
 {
     public static SaveData SaveData { get; private set; }
     private string SavePath => $"{Application.persistentDataPath}/save_data.save";
 
+    public void NewGame()
+    {
+        File.Delete(SavePath);
+        LoadGame();
+    }
+
     private void SaveGame()
     {
+        Debug.Log("save");
         SaveData data = new SaveData();
         BinaryFormatter formatter = new BinaryFormatter();
         using (FileStream stream = new FileStream(SavePath, FileMode.Create))
@@ -20,6 +28,7 @@ public class SaveManager : MonoBehaviour
 
     private void LoadGame()
     {
+        Debug.Log("load");
         if(File.Exists(SavePath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -31,8 +40,9 @@ public class SaveManager : MonoBehaviour
         else SaveData = new SaveData();
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         LoadGame();
     }
 

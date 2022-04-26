@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneController : MonoBehaviour
+public class GameManagerInteractor : MonoBehaviour
 {
     public void RestartScene()
     {
@@ -15,5 +15,10 @@ public class SceneController : MonoBehaviour
     public void OpenGameScene()
     {
         ScenesManager.Instance.OpenGameScene();
+    }
+
+    public void NewGame()
+    {
+        SaveManager.Instance.NewGame();
     }
 }

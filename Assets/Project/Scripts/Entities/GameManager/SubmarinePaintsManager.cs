@@ -24,8 +24,8 @@ public class SubmarinePaintsManager : MonoBehaviour
 
     private void Awake()
     {
-        CurrentObjectIndex = SaveData.CurrentSubmarinePaintIndex;
-        ObjectsPurchaseStatus = SaveData.PaintsPurchaseStatus;
+        CurrentObjectIndex = SaveManager.SaveData.CurrentSubmarinePaintIndex;
+        ObjectsPurchaseStatus = SaveManager.SaveData.PaintsPurchaseStatus;
         PaintObjects = Resources.LoadAll<SubmarinePaintObject>("SubmarineObjects/SubmarinePaints");
         if(ObjectsPurchaseStatus == null)
         {

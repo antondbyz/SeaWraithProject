@@ -1,32 +1,46 @@
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 [DefaultExecutionOrder(-1)]
 public class SaveManager : MonoBehaviour
 {
-    private string SavePath => $"{Application.persistentDataPath}/saves/save_data.save";
+    public static SaveData SaveData { get; private set; }
+    private string SavePath => $"{Application.persistentDataPath}/save_data.save";
 
-    private void SaveToFile(object data)
+    private void SaveGame()
     {
-        
+        SaveData data = new SaveData();
+        BinaryFormatter formatter = new BinaryFormatter();
+        using (FileStream stream = new FileStream(SavePath, FileMode.Create))
+        {
+            formatter.Serialize(stream, data);
+        }
     }
 
-    private object LoadFromFile()
+    private void LoadGame()
     {
-        return null;
+        if(File.Exists(SavePath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using(FileStream stream = new FileStream(SavePath, FileMode.Open))
+            {
+                SaveData = (SaveData)formatter.Deserialize(stream);
+            }
+        }
+        else SaveData = new SaveData();
     }
 
     private void Awake()
     {
-        SaveData loadedData = (SaveData)LoadFromFile();
+        LoadGame();
     }
 
     private void OnApplicationFocus(bool focusStatus)
     {
-        SaveData data = new SaveData();
-        data.UpdateData();
         if(!focusStatus) 
         {
-            SaveToFile(data);
+            SaveGame();
         }
     }
 }

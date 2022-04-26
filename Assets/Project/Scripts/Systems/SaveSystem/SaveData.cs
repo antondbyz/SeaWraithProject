@@ -3,13 +3,13 @@ using System;
 [Serializable]
 public class SaveData
 {
-    public static int BestScore { get; private set; }
-    public static int CrystalsAmount { get; private set; }
-    public static int CurrentSubmarineStatsIndex { get; private set; }
-    public static int CurrentSubmarinePaintIndex { get; private set; }
-    public static bool[] PaintsPurchaseStatus { get; private set; }
+    public int BestScore { get; private set; }
+    public int CrystalsAmount { get; private set; }
+    public int CurrentSubmarineStatsIndex { get; private set; }
+    public int CurrentSubmarinePaintIndex { get; private set; }
+    public bool[] PaintsPurchaseStatus { get; private set; }
 
-    public void UpdateData()
+    public SaveData()
     {
         BestScore = PlayerProfile.BestScore;
         CrystalsAmount = PlayerProfile.CrystalsAmount;

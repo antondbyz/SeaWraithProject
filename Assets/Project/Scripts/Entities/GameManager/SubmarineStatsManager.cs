@@ -20,7 +20,7 @@ public class SubmarineStatsManager : MonoBehaviour
 
     public static void UpgradeCurrentStatsObject() 
     {
-        if(SaveData.CurrentSubmarineStatsIndex < (StatsObjects.Length - 1))
+        if(SaveManager.SaveData.CurrentSubmarineStatsIndex < (StatsObjects.Length - 1))
         {
             CurrentObjectIndex++;
             CurrentStatsObjectChanged?.Invoke();
@@ -29,7 +29,7 @@ public class SubmarineStatsManager : MonoBehaviour
 
     private void Awake()
     {
-        CurrentObjectIndex = SaveData.CurrentSubmarineStatsIndex;
+        CurrentObjectIndex = SaveManager.SaveData.CurrentSubmarineStatsIndex;
         StatsObjects = Resources.LoadAll<SubmarineStatsObject>("SubmarineObjects/SubmarineStats");
     }
 }

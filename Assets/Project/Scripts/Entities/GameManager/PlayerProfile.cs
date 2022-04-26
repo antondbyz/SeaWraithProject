@@ -25,12 +25,13 @@ public class PlayerProfile : MonoBehaviour
     }
     private static int _bestScore;
     private static int _crystalsAmount;
-    [SerializeField] private int _startCrystalsAmount;
+    [SerializeField] private bool _setCustomCrystalsAmount;
+    [SerializeField] private int _customCrystalsAmount;
 
     private void Awake()
     {
-        _bestScore = SaveData.BestScore;
-        _crystalsAmount = SaveData.CrystalsAmount;
-        CrystalsAmount = _startCrystalsAmount;
+        _bestScore = SaveManager.SaveData.BestScore;
+        _crystalsAmount = SaveManager.SaveData.CrystalsAmount;
+        if(_setCustomCrystalsAmount) CrystalsAmount = _customCrystalsAmount;
     }
 }

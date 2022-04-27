@@ -5,16 +5,10 @@ using System.IO;
 [DefaultExecutionOrder(-1)]
 public class SaveManager : MonoBehaviour
 {
-    private static string SavePath => $"{Application.persistentDataPath}/save_data.save";
-    private static IInitializableOnLoad[] _initializables;
+    private string SavePath => $"{Application.persistentDataPath}/save_data.save";
+    private IInitializableOnLoad[] _initializables;
 
-    public static void NewGame()
-    {
-        File.Delete(SavePath);
-        LoadGame();
-    }
-
-    private static void SaveGame()
+    private void SaveGame()
     {
         SaveData data = new SaveData();
         data.Initialize();
@@ -25,7 +19,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private static void LoadGame()
+    private void LoadGame()
     {
         SaveData loadedData = new SaveData();
         if(File.Exists(SavePath))

@@ -16,9 +16,4 @@ public class GameManagerInteractor : MonoBehaviour
     {
         ScenesManager.Instance.OpenGameScene();
     }
-
-    public void NewGame()
-    {
-        SaveManager.NewGame();
-    }
 }

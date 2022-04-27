@@ -9,7 +9,7 @@ public class SaveData
     public int CurrentSubmarinePaintIndex { get; private set; }
     public bool[] PaintsPurchaseStatus { get; private set; }
 
-    public SaveData()
+    public void Initialize()
     {
         BestScore = PlayerProfile.BestScore;
         CrystalsAmount = PlayerProfile.CrystalsAmount;

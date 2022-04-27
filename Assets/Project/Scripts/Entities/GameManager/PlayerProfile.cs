@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerProfile : MonoBehaviour
+public class PlayerProfile : MonoBehaviour, IInitializableOnLoad
 {
     public static event System.Action CrystalsChanged;
     public static int BestScore
@@ -25,13 +25,12 @@ public class PlayerProfile : MonoBehaviour
     }
     private static int _bestScore;
     private static int _crystalsAmount;
-    [SerializeField] private bool _setCustomCrystalsAmount;
-    [SerializeField] private int _customCrystalsAmount;
-
-    private void Awake()
+    [SerializeField] private int _increaseStartCrystalsAmount;
+    
+    public void Initialize(SaveData initializationData)
     {
-        _bestScore = SaveManager.SaveData.BestScore;
-        _crystalsAmount = SaveManager.SaveData.CrystalsAmount;
-        if(_setCustomCrystalsAmount) CrystalsAmount = _customCrystalsAmount;
+        _bestScore = initializationData.BestScore;
+        _crystalsAmount = initializationData.CrystalsAmount;
+        CrystalsAmount += _increaseStartCrystalsAmount;
     }
 }

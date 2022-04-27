@@ -1,24 +1,23 @@
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using UnityEditor;
 
 [DefaultExecutionOrder(-1)]
-public class SaveManager : Singleton<SaveManager>
+public class SaveManager : MonoBehaviour
 {
-    public static SaveData SaveData { get; private set; }
-    private string SavePath => $"{Application.persistentDataPath}/save_data.save";
+    private static string SavePath => $"{Application.persistentDataPath}/save_data.save";
+    private static IInitializableOnLoad[] _initializables;
 
-    public void NewGame()
+    public static void NewGame()
     {
         File.Delete(SavePath);
         LoadGame();
     }
 
-    private void SaveGame()
+    private static void SaveGame()
     {
-        Debug.Log("save");
         SaveData data = new SaveData();
+        data.Initialize();
         BinaryFormatter formatter = new BinaryFormatter();
         using (FileStream stream = new FileStream(SavePath, FileMode.Create))
         {
@@ -26,23 +25,26 @@ public class SaveManager : Singleton<SaveManager>
         }
     }
 
-    private void LoadGame()
+    private static void LoadGame()
     {
-        Debug.Log("load");
+        SaveData loadedData = new SaveData();
         if(File.Exists(SavePath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             using(FileStream stream = new FileStream(SavePath, FileMode.Open))
             {
-                SaveData = (SaveData)formatter.Deserialize(stream);
+                loadedData = (SaveData)formatter.Deserialize(stream);
             }
         }
-        else SaveData = new SaveData();
+        for(int i = 0; i < _initializables.Length; i++)
+        {
+            _initializables[i].Initialize(loadedData);
+        }
     }
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
+        _initializables = GetComponents<IInitializableOnLoad>();
         LoadGame();
     }
 

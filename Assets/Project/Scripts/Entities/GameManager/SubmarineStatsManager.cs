@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SubmarineStatsManager : MonoBehaviour
+public class SubmarineStatsManager : MonoBehaviour, IInitializableOnLoad
 {
     public static event System.Action CurrentStatsObjectChanged;
     public static SubmarineStatsObject[] StatsObjects { get; private set; }
@@ -20,16 +20,20 @@ public class SubmarineStatsManager : MonoBehaviour
 
     public static void UpgradeCurrentStatsObject() 
     {
-        if(SaveManager.SaveData.CurrentSubmarineStatsIndex < (StatsObjects.Length - 1))
+        if(CurrentObjectIndex < (StatsObjects.Length - 1))
         {
             CurrentObjectIndex++;
             CurrentStatsObjectChanged?.Invoke();
         }
     }
 
+    public void Initialize(SaveData initializationData)
+    {
+        CurrentObjectIndex = initializationData.CurrentSubmarineStatsIndex;
+    }
+
     private void Awake()
     {
-        CurrentObjectIndex = SaveManager.SaveData.CurrentSubmarineStatsIndex;
         StatsObjects = Resources.LoadAll<SubmarineStatsObject>("SubmarineObjects/SubmarineStats");
     }
 }

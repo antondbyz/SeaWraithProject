@@ -251,8 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5291e3578815e8245b8b049b963995ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setCustomCrystalsAmount: 0
-  _customCrystalsAmount: 1000
+  _increaseStartCrystalsAmount: 300
 --- !u!114 &1504318553
 MonoBehaviour:
   m_ObjectHideFlags: 0

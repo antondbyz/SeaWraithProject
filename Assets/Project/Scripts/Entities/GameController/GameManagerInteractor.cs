@@ -19,6 +19,6 @@ public class GameManagerInteractor : MonoBehaviour
 
     public void NewGame()
     {
-        SaveManager.Instance.NewGame();
+        SaveManager.NewGame();
     }
 }

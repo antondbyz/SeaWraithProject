@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SubmarinePaintsManager : MonoBehaviour
+public class SubmarinePaintsManager : MonoBehaviour, IInitializableOnLoad
 {
     public static event System.Action ItemsChanged;
     public static SubmarinePaintObject[] PaintObjects { get; private set; }
@@ -22,15 +22,19 @@ public class SubmarinePaintsManager : MonoBehaviour
 
     public static bool IsItemBought(PaintItem item) => ObjectsPurchaseStatus[item.Index];
 
-    private void Awake()
+    public void Initialize(SaveData initializationData)
     {
-        CurrentObjectIndex = SaveManager.SaveData.CurrentSubmarinePaintIndex;
-        ObjectsPurchaseStatus = SaveManager.SaveData.PaintsPurchaseStatus;
-        PaintObjects = Resources.LoadAll<SubmarinePaintObject>("SubmarineObjects/SubmarinePaints");
+        CurrentObjectIndex = initializationData.CurrentSubmarinePaintIndex;
+        ObjectsPurchaseStatus = initializationData.PaintsPurchaseStatus;
         if(ObjectsPurchaseStatus == null)
         {
             ObjectsPurchaseStatus = new bool[PaintObjects.Length];
             ObjectsPurchaseStatus[0] = true;
         }
+    }
+
+    private void Awake()
+    {
+        PaintObjects = Resources.LoadAll<SubmarinePaintObject>("SubmarineObjects/SubmarinePaints");
     }
 }

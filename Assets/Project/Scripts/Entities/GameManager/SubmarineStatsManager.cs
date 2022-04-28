@@ -29,11 +29,7 @@ public class SubmarineStatsManager : MonoBehaviour, IInitializableOnLoad
 
     public void Initialize(SaveData initializationData)
     {
-        CurrentObjectIndex = initializationData.CurrentSubmarineStatsIndex;
-    }
-
-    private void Awake()
-    {
         StatsObjects = Resources.LoadAll<SubmarineStatsObject>("SubmarineObjects/SubmarineStats");
+        CurrentObjectIndex = initializationData.CurrentSubmarineStatsIndex;
     }
 }

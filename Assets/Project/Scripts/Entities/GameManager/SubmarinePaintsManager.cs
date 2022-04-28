@@ -24,17 +24,13 @@ public class SubmarinePaintsManager : MonoBehaviour, IInitializableOnLoad
 
     public void Initialize(SaveData initializationData)
     {
+        PaintObjects = Resources.LoadAll<SubmarinePaintObject>("SubmarineObjects/SubmarinePaints");
         CurrentObjectIndex = initializationData.CurrentSubmarinePaintIndex;
         ObjectsPurchaseStatus = initializationData.PaintsPurchaseStatus;
         if(ObjectsPurchaseStatus == null)
         {
             ObjectsPurchaseStatus = new bool[PaintObjects.Length];
-            ObjectsPurchaseStatus[0] = true;
+            ObjectsPurchaseStatus[0] = true; 
         }
-    }
-
-    private void Awake()
-    {
-        PaintObjects = Resources.LoadAll<SubmarinePaintObject>("SubmarineObjects/SubmarinePaints");
     }
 }

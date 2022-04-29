@@ -247,8 +247,9 @@ MonoBehaviour:
   _normalColor: {r: 0, g: 0, b: 0, a: 1}
   _selectedColor: {r: 0.18027246, g: 1, b: 0, a: 1}
   _submarinePreview: {fileID: 3481829669942059286}
-  _priceLabel: {fileID: 8247418428043659963}
+  _statsText: {fileID: 7820642505607024685}
   _priceText: {fileID: 1081146798913653868}
+  _priceLabel: {fileID: 8247418428043659963}
   _boughtLabel: {fileID: 4338422557922778451}
   _usingLabel: {fileID: 1513667580454820464}
 --- !u!1 &4338422557922778451

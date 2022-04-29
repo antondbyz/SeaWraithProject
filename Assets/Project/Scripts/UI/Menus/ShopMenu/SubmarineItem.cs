@@ -10,10 +10,9 @@ public class SubmarineItem : SelectableItem
     public bool IsCurrent => SubmarinesManager.CurrentSubmarineIndex == Index;
     public bool IsEnoughtCrystalsToBuy => PlayerProfile.CrystalsAmount >= Submarine.Price;
     [SerializeField] private Image _submarinePreview;
-    [Header("Price")]
-    [SerializeField] private GameObject _priceLabel;
+    [SerializeField] private TMP_Text _statsText;
     [SerializeField] private TMP_Text _priceText;
-    [Space]
+    [SerializeField] private GameObject _priceLabel;
     [SerializeField] private GameObject _boughtLabel;
     [SerializeField] private GameObject _usingLabel;
     private bool _isInitialized;
@@ -22,6 +21,8 @@ public class SubmarineItem : SelectableItem
     {
         _submarinePreview.sprite = submarine.Paint;
         _priceText.text = $"{submarine.Price}<sprite name=Crystal>";
+        _statsText.text = $"<size=90%>Armor:</size> <b>{submarine.Armor}</b>\t" +
+            $"<size=90%>Mobility:</size> <b>{submarine.Mobility}</b>";
         Submarine = submarine;
         Index = index;
         UpdateUI();

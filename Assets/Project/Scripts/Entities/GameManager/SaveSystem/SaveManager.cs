@@ -5,6 +5,7 @@ using System.IO;
 [DefaultExecutionOrder(-1)]
 public class SaveManager : MonoBehaviour
 {
+    [SerializeField] private bool _loadData;
     private string SavePath => $"{Application.persistentDataPath}/save_data.save";
     private IInitializableOnLoad[] _initializables;
 
@@ -22,12 +23,15 @@ public class SaveManager : MonoBehaviour
     private void LoadGame()
     {
         SaveData loadedData = new SaveData();
-        if(File.Exists(SavePath))
+        if(_loadData)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            using(FileStream stream = new FileStream(SavePath, FileMode.Open))
+            if(File.Exists(SavePath))
             {
-                loadedData = (SaveData)formatter.Deserialize(stream);
+                BinaryFormatter formatter = new BinaryFormatter();
+                using(FileStream stream = new FileStream(SavePath, FileMode.Open))
+                {
+                    loadedData = (SaveData)formatter.Deserialize(stream);
+                }
             }
         }
         for(int i = 0; i < _initializables.Length; i++)

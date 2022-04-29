@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 868a7a508fb786c4f81fad0b50779f41, type: 3}
-  m_Name: Stats1
+  m_Script: {fileID: 11500000, guid: b9f61cf2c18ab9643b0779f71122ad9f, type: 3}
+  m_Name: Submarine1
   m_EditorClassIdentifier: 
-  _price: 50
+  _price: 100
+  _paint: {fileID: 21300000, guid: 87c4793db15ecd44b94e8d7ae67307a2, type: 3}
   _armor: 3
-  _mobility: 45
+  _mobility: 50

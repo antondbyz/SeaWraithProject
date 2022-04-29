@@ -1,13 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SubmarineRenderer : MonoBehaviour
+public class PlayerRenderer : MonoBehaviour
 {
     private SpriteRenderer _renderer;
 
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        _renderer.sprite = SubmarinePaintsManager.CurrentPaintObject.Paint;
+        _renderer.sprite = SubmarinesManager.CurrentSubmarine.Paint;
     }
 }

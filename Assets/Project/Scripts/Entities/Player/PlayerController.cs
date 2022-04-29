@@ -22,7 +22,7 @@ public class PlayerController : MovementController
         base.Awake();
         _health = GetComponent<PlayerHealth>();
         _input = ObjectsFinder.FindGameController().GetComponent<InputController>();
-        _rotateSpeed = SubmarineStatsManager.CurrentStatsObject.Mobility;
+        _rotateSpeed = SubmarinesManager.CurrentSubmarine.Mobility;
     }
 
     private void FixedUpdate() 

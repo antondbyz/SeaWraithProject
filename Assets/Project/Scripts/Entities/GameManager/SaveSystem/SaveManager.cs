@@ -5,7 +5,7 @@ using System.IO;
 [DefaultExecutionOrder(-1)]
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private bool _loadData;
+    [SerializeField] private bool _loadOnAwake;
     private string SavePath => $"{Application.persistentDataPath}/save_data.save";
     private IInitializableOnLoad[] _initializables;
 
@@ -23,7 +23,7 @@ public class SaveManager : MonoBehaviour
     private void LoadGame()
     {
         SaveData loadedData = new SaveData();
-        if(_loadData)
+        if(_loadOnAwake)
         {
             if(File.Exists(SavePath))
             {

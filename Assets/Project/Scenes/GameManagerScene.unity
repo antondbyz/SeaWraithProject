@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5291e3578815e8245b8b049b963995ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increaseStartCrystalsAmount: 300
+  _increaseStartCrystalsAmount: 0
 --- !u!114 &1504318553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +275,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee3aded426bfe94bb52043170766b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadOnAwake: 0

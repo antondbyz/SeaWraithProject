@@ -661,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 1445794983470115046, guid: c72c5af1a5e36d44f8e5287190c1630a, type: 3}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _spawnRate
-      value: 100
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _poolLength

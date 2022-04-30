@@ -15,11 +15,12 @@ public class PlayerHealth : MonoBehaviour
             {
                 _smokeParticles.Play();
                 float t = Mathf.Abs(Mathf.InverseLerp(1, _maxHealth - 1, _health) - 1);
-                _emission.rateOverTime = Mathf.Lerp(_smokeEmissionRange.Min, _smokeEmissionRange.Max, t);
+                _smokeEmission.rateOverTime = Mathf.Lerp(_smokeEmissionRange.Min, _smokeEmissionRange.Max, t);
             }
             if(_health == 0)
             {
                 _gameUI.SetActive(false);
+                _smokeEmission.rateOverTime = _smokeEmissionRange.Max;
                 Instantiate(_explosionEffect, transform.position, Quaternion.identity);
                 if(_collider != null) Destroy(_collider);
                 _bubblesParticles.Stop();
@@ -42,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     private int _maxHealth;
     private int _health;
     private Collider2D _collider;
-    private EmissionModule _emission;
+    private EmissionModule _smokeEmission;
 
     public void TakeDamage() => Health--;
 
@@ -51,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
-        _emission = _smokeParticles.emission;
+        _smokeEmission = _smokeParticles.emission;
         _maxHealth = SubmarinesManager.CurrentSubmarine.Armor;
         Health = _maxHealth;
     }

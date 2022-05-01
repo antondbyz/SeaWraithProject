@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _poolLength;
     [SerializeField] private Vector2 _spawnAreaSize; 
     [SerializeField] private float _spawnRate;
-
     private PlayerScore _playerScore;
     private Queue<ISpawnable> _pool = new Queue<ISpawnable>();
     private float _nextSpawn;

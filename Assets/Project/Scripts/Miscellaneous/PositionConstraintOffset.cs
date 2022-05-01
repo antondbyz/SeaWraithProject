@@ -5,7 +5,6 @@ using UnityEngine.Animations;
 public class PositionConstraintOffset : MonoBehaviour
 {
     [SerializeField] private MinMaxRange<Vector2> _offsetRange; 
-
     private PositionConstraint _constraint;
     private GameSpeedController _gameSpeed;
 

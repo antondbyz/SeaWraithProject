@@ -30,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     public bool IsAlive => _health > 0;
-
     [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private GameObject _gameUI;
     [Header("Bubbles particles")]
@@ -39,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
     [Header("Smoke")]
     [SerializeField] private ParticleSystem _smokeParticles;
     [SerializeField] private MinMaxRange<float> _smokeEmissionRange;
-
     private int _maxHealth;
     private int _health;
     private Collider2D _collider;

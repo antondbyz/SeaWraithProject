@@ -12,9 +12,7 @@ public class PlayerCrystals : MonoBehaviour
             _crystalsText.text = (PlayerProfile.CrystalsAmount + _crystalsCollected).ToString();
         }
     }
-
     [SerializeField] private TMP_Text _crystalsText;
-
     private int _crystalsCollected;
 
     public void CollectCrystal()

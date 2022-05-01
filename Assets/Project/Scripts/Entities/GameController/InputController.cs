@@ -13,7 +13,6 @@ public class InputController : MonoBehaviour
             #endif
         } 
     }
-
     [SerializeField] private GameButton _moveUpButton;
     [SerializeField] private GameButton _moveDownButton;
 

@@ -6,7 +6,6 @@ public class FallingBomb : Bomb
     [SerializeField] private MinMaxRange<float> _torqueRange;
     [SerializeField] [Range(1, 10)] private float _waterFriction;
     [SerializeField] private GameObject _waterSplashEffect;
-
     private SpriteRenderer _renderer;
     private Rigidbody2D _rigidbody;
     private BoxCollider2D _collider;

@@ -3,7 +3,6 @@ using UnityEngine;
 public abstract class Bomb : MonoBehaviour, IInteractable, ISpawnable
 {
     public InteractableType Type => InteractableType.Bomb;
-
     [SerializeField] private GameObject _explosionEffect;
 
     public void Interact()

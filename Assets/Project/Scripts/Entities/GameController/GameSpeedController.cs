@@ -3,9 +3,7 @@ using UnityEngine;
 public class GameSpeedController : MonoBehaviour
 {
     public float Speed { get; private set; }
-
     [SerializeField] private float _accelerationRate;
-
     private PlayerHealth _health;
 
     private void Awake()

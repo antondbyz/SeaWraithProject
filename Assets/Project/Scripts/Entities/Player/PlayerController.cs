@@ -11,7 +11,6 @@ public class PlayerController : MovementController
     [SerializeField] private float _sinkGravity;
     [SerializeField] private float _sinkRotateSpeed;
     [SerializeField] private float _sinkSlowingSpeed;
-
     private PlayerHealth _health;
     private InputController _input;
     private int _rotateSpeed;

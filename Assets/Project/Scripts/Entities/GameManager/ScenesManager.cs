@@ -8,7 +8,6 @@ public class ScenesManager : Singleton<ScenesManager>
     [SerializeField] private int _loadingSceneBuildIndex;
     [SerializeField] private int _mainMenuBuildIndex;
     [SerializeField] private int _gameBuildIndex;
-
     private WaitForSecondsRealtime _loadingSceneDuration = new WaitForSecondsRealtime(1.5f);
 
     public void OpenMainMenuScene()

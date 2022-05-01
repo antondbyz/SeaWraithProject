@@ -5,7 +5,6 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] protected MinMaxRange<float> _speedRange;
     [SerializeField] protected Vector2 _direction;
-
     protected Rigidbody2D _rigidbody;
     protected GameSpeedController _gameSpeed; 
     protected float _speed;

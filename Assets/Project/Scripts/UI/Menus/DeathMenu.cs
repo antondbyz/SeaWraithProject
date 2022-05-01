@@ -13,7 +13,6 @@ public class DeathMenu : MonoBehaviour
     [SerializeField] private TMP_ColorGradient _bestScoreGradient;
     [Space]
     [SerializeField] private TMP_Text _finalCrystalsText;
-
     private PlayerHealth _playerHealth;
     private PlayerScore _playerScore;
     private PlayerCrystals _playerCrystals;

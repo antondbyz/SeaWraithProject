@@ -5,12 +5,10 @@ public class PlayerScore : MonoBehaviour
 {
     public int Score => _score;
     public bool IsBestScore => _isBestScore;
-
     [SerializeField] private TMP_Text _scoreText;
     [Header("Text gradients")]
     [SerializeField] private TMP_ColorGradient _defaultScoreGradient;
     [SerializeField] private TMP_ColorGradient _bestScoreGradient;
-
     private int _score;
     private bool _isBestScore;
     private float _startXPos;

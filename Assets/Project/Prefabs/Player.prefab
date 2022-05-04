@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 8659539022078595014, guid: 3e590fb173daf924da5d1242777da389, type: 3}
+  _explosionAudios:
+  - {fileID: 8300000, guid: 2e56a603fd806db43bc9c918468175e7, type: 3}
+  - {fileID: 8300000, guid: c6fb194173cd03b4481db8f2c12898e9, type: 3}
   _gameUI: {fileID: 0}
   _bubblesParticles: {fileID: 5849585470670582855}
   _deathBubblesParticles: {fileID: 4474571430104000841}

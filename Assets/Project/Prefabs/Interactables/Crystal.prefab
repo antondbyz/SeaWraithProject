@@ -113,3 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectedEffect: {fileID: 5872327062347592651, guid: 71e092f289aa8c449b7ff93af160bd83, type: 3}
+  _collectedAudios:
+  - {fileID: 8300000, guid: eebfb278e13dcb346a7149fb9041936e, type: 3}
+  - {fileID: 8300000, guid: 89d8189da9d47f74f93513e721ce7bb1, type: 3}

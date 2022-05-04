@@ -3,13 +3,17 @@ using static UnityEngine.ParticleSystem;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public event System.Action Died;
+    public static event System.Action Died;
     public int Health
     {
         get => _health;
         private set
         {
             value = Mathf.Clamp(value, 0, _maxHealth);
+            if(value < _health) 
+            {
+                AudioPlayer.Instance.PlayRandomAudioOneShot(_explosionAudios);
+            }
             _health = value;
             if(_health < _maxHealth)
             {
@@ -30,9 +34,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     public bool IsAlive => _health > 0;
+    [Header("Explosion")]
     [SerializeField] private GameObject _explosionEffect;
+    [SerializeField] private AudioClip[] _explosionAudios;
     [SerializeField] private GameObject _gameUI;
-    [Header("Bubbles particles")]
+    [Header("Bubbles")]
     [SerializeField] private ParticleSystem _bubblesParticles;
     [SerializeField] private ParticleSystem _deathBubblesParticles;
     [Header("Smoke")]

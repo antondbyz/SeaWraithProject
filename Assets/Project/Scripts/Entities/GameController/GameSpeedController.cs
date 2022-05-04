@@ -4,26 +4,21 @@ public class GameSpeedController : MonoBehaviour
 {
     public float Speed { get; private set; }
     [SerializeField] private float _accelerationRate;
-    private PlayerHealth _health;
-
-    private void Awake()
-    {
-        _health = ObjectsFinder.FindPlayer().GetComponent<PlayerHealth>();
-    }
+    private bool _isPlayerAlive = true;
 
     private void OnEnable()
     {
-        _health.Died += OnPlayerDied;
+        PlayerHealth.Died += OnPlayerDied;
     }
 
     private void OnDisable()
     {
-        _health.Died -= OnPlayerDied;
+        PlayerHealth.Died -= OnPlayerDied;
     }
 
     private void Update()
     {
-        if (_health.IsAlive) 
+        if (_isPlayerAlive) 
         {
             Speed = Mathf.MoveTowards(Speed, 1, _accelerationRate * Time.deltaTime);
         }
@@ -32,5 +27,6 @@ public class GameSpeedController : MonoBehaviour
     private void OnPlayerDied()
     {
         Speed = 0;
+        _isPlayerAlive = false;
     }
 }

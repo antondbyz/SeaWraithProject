@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public abstract class SelectableItem : MonoBehaviour, IPointerClickHandler
+[RequireComponent(typeof(Image), typeof(Button))]
+public abstract class SelectableItem : MonoBehaviour
 {
     public bool IsSelected
     {
@@ -20,15 +19,16 @@ public abstract class SelectableItem : MonoBehaviour, IPointerClickHandler
     private SelectableItemsController _controller;
     private bool _isSelected;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(!_isSelected) _controller.SelectItem(this);
-    }
-
     private void Awake()
     {
         _image = GetComponent<Image>();
+        GetComponent<Button>().onClick.AddListener(OnButtonClick);
         _controller = transform.parent.GetComponent<SelectableItemsController>();
         IsSelected = false;
+    }
+
+    private void OnButtonClick()
+    {
+        if(!_isSelected) _controller.SelectItem(this);
     }
 }

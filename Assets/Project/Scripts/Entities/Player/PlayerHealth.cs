@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
             value = Mathf.Clamp(value, 0, _maxHealth);
             if(value < _health) 
             {
-                AudioPlayer.Instance.PlayRandomAudioOneShot(_explosionAudios);
+                SoundsPlayer.Instance.PlayRandomSound(_explosionAudios);
             }
             _health = value;
             if(_health < _maxHealth)

@@ -11,5 +11,5 @@ public class ButtonAudio : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(OnButtonClick);
     }
 
-    private void OnButtonClick() => AudioPlayer.Instance.PlayAudioOneShot(clipOnClick);
+    private void OnButtonClick() => SoundsPlayer.Instance.PlaySound(clipOnClick);
 }

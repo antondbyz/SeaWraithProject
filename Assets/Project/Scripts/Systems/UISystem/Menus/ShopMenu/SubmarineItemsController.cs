@@ -1,19 +1,12 @@
 using UnityEngine;
 
-[DefaultExecutionOrder(-1)]
 public class SubmarineItemsController : SelectableItemsController
 {
     public event System.Action ItemSelected;
     [SerializeField] private SubmarineItem _submarineItem;
     private SubmarineItem[] _submarineItems;
 
-    protected override void OnItemSelected(SelectableItem item)
-    {
-        SubmarineItem submarineItem = (SubmarineItem)item;
-        ItemSelected?.Invoke();
-    }
-
-    private void Awake()
+    public void Initialize()
     {
         _submarineItems = new SubmarineItem[SubmarinesManager.SubmarineObjects.Length];
         for(int i = 0 ; i < _submarineItems.Length; i++)
@@ -23,5 +16,11 @@ public class SubmarineItemsController : SelectableItemsController
             _submarineItems[i] = newItem;
         }
         SelectItem(_submarineItems[0]);
+    }
+
+    protected override void OnItemSelected(SelectableItem item)
+    {
+        SubmarineItem submarineItem = (SubmarineItem)item;
+        ItemSelected?.Invoke();
     }
 }

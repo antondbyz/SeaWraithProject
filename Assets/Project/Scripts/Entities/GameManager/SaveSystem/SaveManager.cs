@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-[DefaultExecutionOrder(-1)]
 public class SaveManager : MonoBehaviour
 {
     [SerializeField] private bool _loadOnAwake;

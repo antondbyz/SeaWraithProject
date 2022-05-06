@@ -198,9 +198,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504318550}
+  - component: {fileID: 1504318555}
+  - component: {fileID: 1504318554}
   - component: {fileID: 1504318551}
   - component: {fileID: 1504318552}
-  - component: {fileID: 1504318555}
   - component: {fileID: 1504318553}
   m_Layer: 0
   m_Name: GameManager
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5291e3578815e8245b8b049b963995ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increaseStartCrystalsAmount: 2000
+  _increaseStartCrystalsAmount: 0
 --- !u!114 &1504318553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +262,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5690722a4f8af684e93b44b4fc3d03b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1504318554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504318549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a88b75873d7feb4eab5bc2a628299c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1504318555
@@ -275,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee3aded426bfe94bb52043170766b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadOnAwake: 0
+  _loadOnAwake: 1
 --- !u!1 &2050985646
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,8 +300,9 @@ GameObject:
   - component: {fileID: 2050985649}
   - component: {fileID: 2050985648}
   - component: {fileID: 2050985647}
+  - component: {fileID: 2050985650}
   m_Layer: 0
-  m_Name: AudioPlayer
+  m_Name: SoundsPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,3 +430,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2050985650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050985646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a976eafdea16342a32588ea187ce6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioType: 1

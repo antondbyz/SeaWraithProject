@@ -23,6 +23,11 @@ public class ShopMenu : MonoBehaviour
         SubmarinesManager.SetCurrentItem(selectedItem);
     }
 
+    private void Awake()
+    {
+        _itemsController.Initialize();
+    }
+
     private void OnEnable()
     {
         UpdateUI();

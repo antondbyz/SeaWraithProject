@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GameManagerInteractor : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
-    public void RestartScene()
+    public void RestartCurrentScene()
     {
         ScenesManager.Instance.OpenSceneByIndex(gameObject.scene.buildIndex);
     }

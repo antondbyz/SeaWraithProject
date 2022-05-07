@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : Singleton<ScenesManager>
 {
-    [Header("Build indexes")]
     [SerializeField] private int _loadingSceneBuildIndex;
     [SerializeField] private int _mainMenuBuildIndex;
     [SerializeField] private int _gameBuildIndex;

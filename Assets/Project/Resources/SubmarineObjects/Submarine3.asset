@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f61cf2c18ab9643b0779f71122ad9f, type: 3}
   m_Name: Submarine3
   m_EditorClassIdentifier: 
-  _price: 500
+  _price: 200
   _paint: {fileID: 21300000, guid: c404aa0e473a59e49b8ba6b2d8a4b2f2, type: 3}
   _armor: 4
   _mobility: 70

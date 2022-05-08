@@ -26,20 +26,24 @@ public class DeathMenu : MonoBehaviour
     private void OnEnable()
     {
         PlayerHealth.Died += OnPlayerDied;
+        _playerCrystals.CrystalsChanged += UpdateCrystalsUI;
     }
 
     private void OnDisable()
     {
         PlayerHealth.Died -= OnPlayerDied;
+        _playerCrystals.CrystalsChanged -= UpdateCrystalsUI;
     }
 
     private void OnPlayerDied()
     {
         _finalScoreText.text = _playerScore.Score.ToString();
         _finalScoreText.colorGradientPreset = _playerScore.IsBestScore ? _bestScoreGradient : _defaultScoreGradient;
-        _finalCrystalsText.text = $"+{_playerCrystals.CrystalsCollected}";
+        UpdateCrystalsUI();
         StartCoroutine(ShowMenu());
     }
+
+    private void UpdateCrystalsUI() => _finalCrystalsText.text = $"+{_playerCrystals.CrystalsCollected}";
 
     private IEnumerator ShowMenu()
     {

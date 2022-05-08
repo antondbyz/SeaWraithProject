@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class InterstitialAdController : MonoBehaviour
 {
-    private Action _afterAdAction;
+    private Action _adClosedAction;
 
-    public void TryShowAd(Action afterAdAction)
+    public void TryShowAd(Action adClosedAction)
     {
-        _afterAdAction = afterAdAction;
+        _adClosedAction = adClosedAction;
         bool showAdSuccessStatus = AdsManager.ShowInterstitialAd();
-        if(!showAdSuccessStatus)
+        if(showAdSuccessStatus)
         {
-            _afterAdAction?.Invoke();
+            AdsManager.Interstitial.OnAdClosed += OnAdClosed;
         }
         else
         {
-            AdsManager.Interstitial.OnAdClosed += OnAdClosed;
+            _adClosedAction.Invoke();
         }
     }
 
@@ -26,6 +26,6 @@ public class InterstitialAdController : MonoBehaviour
 
     private void OnAdClosed(object sender, EventArgs e)
     {
-        _afterAdAction?.Invoke();
+        _adClosedAction.Invoke();
     }
 }

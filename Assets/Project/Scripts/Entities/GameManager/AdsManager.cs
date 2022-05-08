@@ -6,8 +6,8 @@ public class AdsManager : MonoBehaviour
 {
     public static InterstitialAd Interstitial { get; private set; }
     public static RewardedAd RewardCrystals { get; private set; }
-    private const string INTERSTITIAL_ID = "ca-app-pub-4333931459484038/3828086609";
-    private const string REWARD_CRYSTALS_ID = "ca-app-pub-4333931459484038/6840725038";
+    private const string INTERSTITIAL_ID = "ca-app-pub-4333931459484038/5717006129";
+    private const string REWARD_CRYSTALS_ID = "ca-app-pub-4333931459484038/1586189428";
 
     public static bool ShowInterstitialAd()
     {

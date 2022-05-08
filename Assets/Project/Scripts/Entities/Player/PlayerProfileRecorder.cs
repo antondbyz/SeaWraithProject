@@ -14,12 +14,12 @@ public class PlayerProfileRecorder : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHealth.Died += RecordStats;
+        GameController.GameFinished += RecordStats;
     }
 
     private void OnDisable()
     {
-        PlayerHealth.Died -= RecordStats;
+        GameController.GameFinished -= RecordStats;
     }
 
     private void RecordStats()

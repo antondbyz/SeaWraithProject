@@ -1,4 +1,14 @@
+using System.Collections;
 using UnityEngine;
+
+public static class Helper
+{
+    public static IEnumerator DoAfterDelay(IEnumerator instruction, System.Action action)
+    {
+        yield return instruction;
+        action?.Invoke();
+    }
+}
 
 [System.Serializable]
 public struct MinMaxRange<T>

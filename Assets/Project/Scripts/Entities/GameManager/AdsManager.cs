@@ -2,37 +2,46 @@ using UnityEngine;
 using GoogleMobileAds.Api;
 using System;
 
-public class AdsManager : MonoBehaviour
+public class AdsManager : Singleton<AdsManager>
 {
-    public static InterstitialAd Interstitial { get; private set; }
-    public static RewardedAd RewardCrystals { get; private set; }
+    #region Ads events
+    public static event System.Action InterstitialClosed;
+    public static event System.Action RewardCrystalsClosed;
+    public static event System.Action RewardCrystalsLoaded;
+    public static event System.Action RewardCrystalsFailedToLoad;
+    public static event System.Action RewardCrystalsEarnedReward;
+    #endregion
+    private static InterstitialAd _interstitial;
+    private static RewardedAd _rewardCrystals;
     private const string INTERSTITIAL_ID = "ca-app-pub-4333931459484038/5717006129";
     private const string REWARD_CRYSTALS_ID = "ca-app-pub-4333931459484038/1586189428";
+    private static WaitForSecondsRealtime adsCallbacksDelay = new WaitForSecondsRealtime(0.1f);
 
-    public static bool ShowInterstitialAd()
+    public bool ShowInterstitialAd()
     {
-        if(Interstitial == null || !Interstitial.IsLoaded())
+        if(_interstitial == null || !_interstitial.IsLoaded())
         {
             CreateAndLoadInterstitial();
             return false;
         }
-        Interstitial.Show();
+        _interstitial.Show();
         return true;
     }
 
-    public static bool ShowRewardCrystalsAd()
+    public bool ShowRewardCrystalsAd()
     {
-        if(RewardCrystals == null || !RewardCrystals.IsLoaded())
+        if(_rewardCrystals == null || !_rewardCrystals.IsLoaded())
         {
             CreateAndLoadCrystalsAd();
             return false;
         }
-        RewardCrystals.Show();
+        _rewardCrystals.Show();
         return true;
     } 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         MobileAds.Initialize(initStatus => 
         {
             CreateAndLoadInterstitial();
@@ -40,31 +49,57 @@ public class AdsManager : MonoBehaviour
         });
     }
 
-    private static void CreateAndLoadInterstitial()
+    private void CreateAndLoadInterstitial()
     {
-        if(Interstitial != null) Interstitial.Destroy();
-        Interstitial = new InterstitialAd(INTERSTITIAL_ID);
-        Interstitial.OnAdClosed += OnInterstitialClosed;
-        Interstitial.LoadAd(new AdRequest.Builder().Build());
+        if(_interstitial != null) _interstitial.Destroy();
+        _interstitial = new InterstitialAd(INTERSTITIAL_ID);
+        _interstitial.OnAdClosed += OnInterstitialClosed;
+        _interstitial.LoadAd(new AdRequest.Builder().Build());
     }
 
-    private static void CreateAndLoadCrystalsAd()
+    private void CreateAndLoadCrystalsAd()
     {
-        if(RewardCrystals != null) RewardCrystals.Destroy();
-        RewardCrystals = new RewardedAd(REWARD_CRYSTALS_ID);
-        RewardCrystals.OnAdClosed += OnRewardCrystalsClosed;
-        RewardCrystals.LoadAd(new AdRequest.Builder().Build());
+        if(_rewardCrystals != null) _rewardCrystals.Destroy();
+        _rewardCrystals = new RewardedAd(REWARD_CRYSTALS_ID);
+        _rewardCrystals.OnAdClosed += OnRewardCrystalsClosed;
+        _rewardCrystals.OnAdLoaded += OnRewardCrystalsLoaded;
+        _rewardCrystals.OnAdFailedToLoad += OnRewardCrystalsFailedToLoad;
+        _rewardCrystals.OnUserEarnedReward += OnRewardCrystalsEarnedReward;
+        _rewardCrystals.LoadAd(new AdRequest.Builder().Build());
     }
 
     #region Ads callbacks
-    private static void OnInterstitialClosed(object sender, EventArgs e)
+    private void OnInterstitialClosed(object sender, EventArgs e)
     {
-        CreateAndLoadInterstitial();
+        StartCoroutine(Helper.DoAfterDelay(adsCallbacksDelay, () => 
+        {
+            CreateAndLoadInterstitial();
+            InterstitialClosed?.Invoke();
+        }));
     }
 
-    private static void OnRewardCrystalsClosed(object sender, EventArgs e)
+    private void OnRewardCrystalsClosed(object sender, EventArgs e)
     {
-        CreateAndLoadCrystalsAd();
+        StartCoroutine(Helper.DoAfterDelay(adsCallbacksDelay, () => 
+        {
+            CreateAndLoadCrystalsAd();
+            RewardCrystalsClosed?.Invoke();
+        }));
+    }
+    
+    private void OnRewardCrystalsLoaded(object sender, EventArgs e)
+    {
+        StartCoroutine(Helper.DoAfterDelay(adsCallbacksDelay, RewardCrystalsLoaded));
+    }
+
+    private void OnRewardCrystalsFailedToLoad(object sender, AdFailedToLoadEventArgs e)
+    {
+        StartCoroutine(Helper.DoAfterDelay(adsCallbacksDelay, RewardCrystalsFailedToLoad));
+    }
+
+    private void OnRewardCrystalsEarnedReward(object sender, Reward e)
+    {
+        StartCoroutine(Helper.DoAfterDelay(adsCallbacksDelay, RewardCrystalsEarnedReward));
     }
     #endregion
 }

@@ -1,5 +1,4 @@
 using System;
-using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,19 +12,19 @@ public class RewardCrystalsAdController : MonoBehaviour
 
     public void TryShowAd()
     {
-        AdsManager.RewardCrystals.OnAdLoaded -= OnAdLoaded;
-        AdsManager.RewardCrystals.OnAdFailedToLoad -= OnAdFailedToLoad;
+        AdsManager.RewardCrystalsLoaded -= OnAdLoaded;
+        AdsManager.RewardCrystalsFailedToLoad -= OnAdFailedToLoad;
         _adFailedToLoadLabel.SetActive(false);
-        bool showAdSuccessStatus = AdsManager.ShowRewardCrystalsAd();
+        bool showAdSuccessStatus = AdsManager.Instance.ShowRewardCrystalsAd();
         if(showAdSuccessStatus)
         {
-            AdsManager.RewardCrystals.OnUserEarnedReward += OnEarnedReward;
-            AdsManager.RewardCrystals.OnAdClosed += OnAdClosed;
+            AdsManager.RewardCrystalsEarnedReward += EarnedReward;
+            AdsManager.RewardCrystalsClosed += OnAdClosed;
         }
         else
         {
-            AdsManager.RewardCrystals.OnAdLoaded += OnAdLoaded;
-            AdsManager.RewardCrystals.OnAdFailedToLoad += OnAdFailedToLoad;
+            AdsManager.RewardCrystalsLoaded += OnAdLoaded;
+            AdsManager.RewardCrystalsFailedToLoad += OnAdFailedToLoad;
             _showAdButton.SetActive(false);
             _adLoadingLabel.SetActive(true);
         }
@@ -33,31 +32,26 @@ public class RewardCrystalsAdController : MonoBehaviour
 
     private void OnDisable()
     {
-        AdsManager.RewardCrystals.OnAdLoaded -= OnAdLoaded;
-        AdsManager.RewardCrystals.OnAdFailedToLoad -= OnAdFailedToLoad;
-        AdsManager.RewardCrystals.OnUserEarnedReward -= OnEarnedReward;
-            AdsManager.RewardCrystals.OnAdClosed -= OnAdClosed;
+        AdsManager.RewardCrystalsLoaded -= OnAdLoaded;
+        AdsManager.RewardCrystalsFailedToLoad -= OnAdFailedToLoad;
+        AdsManager.RewardCrystalsEarnedReward -= EarnedReward;
+        AdsManager.RewardCrystalsClosed -= OnAdClosed;
     }
 
-    private void OnAdClosed(object sender, EventArgs e)
+    private void OnAdClosed()
     {
         _adClosed.Invoke();
     }
 
-    private void OnAdLoaded(object sender, EventArgs e)
+    private void OnAdLoaded()
     {
         TryShowAd();
     }
 
-    private void OnAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)
+    private void OnAdFailedToLoad()
     {
         _adFailedToLoadLabel.SetActive(true);
         _showAdButton.SetActive(true);
         _adLoadingLabel.SetActive(false);
-    }
-
-    private void OnEarnedReward(object sender, Reward e)
-    {
-        EarnedReward?.Invoke();
     }
 }

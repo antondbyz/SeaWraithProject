@@ -8,10 +8,10 @@ public class InterstitialAdController : MonoBehaviour
     public void TryShowAd(Action adClosedAction)
     {
         _adClosedAction = adClosedAction;
-        bool showAdSuccessStatus = AdsManager.ShowInterstitialAd();
+        bool showAdSuccessStatus = AdsManager.Instance.ShowInterstitialAd();
         if(showAdSuccessStatus)
         {
-            AdsManager.Interstitial.OnAdClosed += OnAdClosed;
+            AdsManager.InterstitialClosed += _adClosedAction;
         }
         else
         {
@@ -21,11 +21,6 @@ public class InterstitialAdController : MonoBehaviour
 
     private void OnDisable()
     {
-        AdsManager.Interstitial.OnAdClosed -= OnAdClosed;
-    }
-
-    private void OnAdClosed(object sender, EventArgs e)
-    {
-        _adClosedAction.Invoke();
+        AdsManager.InterstitialClosed -= _adClosedAction;
     }
 }

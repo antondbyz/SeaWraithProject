@@ -154,7 +154,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.Eighter.SeaWraith
-    Standalone: com.DefaultCompany.Untouchable
+    Standalone: com.Eighter.SeaWraith
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -667,7 +667,7 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
-    Standalone: 1
+    Standalone: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

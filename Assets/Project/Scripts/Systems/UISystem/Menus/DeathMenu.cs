@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DeathMenu : MonoBehaviour
 {
-    [Header("Menu")]
-    [SerializeField] private GameObject _menu;
+    [Header("Death menu")]
+    [SerializeField] private GameObject _deathMenu;
+    [SerializeField] private GameObject _doubleCrystalsMenu;
+    [SerializeField] private GameObject _mainDeathMenu;
     [SerializeField] private float _showMenuDelay;
     [Header("Score text")]
     [SerializeField] private TMP_Text _finalScoreText;
@@ -37,6 +39,8 @@ public class DeathMenu : MonoBehaviour
 
     private void OnPlayerDied()
     {
+        _doubleCrystalsMenu.SetActive(_playerCrystals.CrystalsCollected > 0);
+        _mainDeathMenu.SetActive(_playerCrystals.CrystalsCollected <= 0);
         _finalScoreText.text = _playerScore.Score.ToString();
         _finalScoreText.colorGradientPreset = _playerScore.IsBestScore ? _bestScoreGradient : _defaultScoreGradient;
         UpdateCrystalsUI();
@@ -48,6 +52,6 @@ public class DeathMenu : MonoBehaviour
     private IEnumerator ShowMenu()
     {
         yield return new WaitForSeconds(_showMenuDelay);
-        _menu.SetActive(true);
+        _deathMenu.SetActive(true);
     }
 }

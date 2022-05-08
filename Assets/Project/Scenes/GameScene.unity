@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4787998963007780916, guid: 2c1f5a25859129e46b955c2d94f57d55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6742218428138924858, guid: 2c1f5a25859129e46b955c2d94f57d55, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -776,7 +780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cb74b4256535f42955308ff924a2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: {fileID: 2057142757}
+  _deathMenu: {fileID: 2057142757}
+  _doubleCrystalsMenu: {fileID: 303801024}
+  _mainDeathMenu: {fileID: 982108900}
   _showMenuDelay: 2
   _finalScoreText: {fileID: 2702124}
   _defaultScoreGradient: {fileID: 11400000, guid: e866aa796a9f40b4ca8ba4d848a76273, type: 2}

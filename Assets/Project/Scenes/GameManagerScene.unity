@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 1504318552}
   - component: {fileID: 1504318553}
   - component: {fileID: 1504318556}
+  - component: {fileID: 1504318557}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5291e3578815e8245b8b049b963995ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increaseStartCrystalsAmount: 1000
+  _increaseStartCrystalsAmount: 0
 --- !u!114 &1504318553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +300,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d60fae3d45bb382479e2bac5f2ac9567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1504318557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504318549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602e29bde6f17d748860ceef3ae322a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2050985646

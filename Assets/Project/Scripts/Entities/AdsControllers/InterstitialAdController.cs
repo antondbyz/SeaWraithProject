@@ -9,7 +9,7 @@ public class InterstitialAdController : MonoBehaviour
     public void TryShowAd(Action afterAdAction)
     {
         _afterAdAction = afterAdAction;
-        if(_isEarnedReward) 
+        if(_isEarnedReward || IAPManager.IsPremiumPurchased) 
         {
             _afterAdAction?.Invoke();
             return;

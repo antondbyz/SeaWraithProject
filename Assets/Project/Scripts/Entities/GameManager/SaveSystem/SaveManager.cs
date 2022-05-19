@@ -4,12 +4,15 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
+    public static bool IsFirstStart { get; private set; }
     public static string SavePath => $"{Application.persistentDataPath}/save_data.save";
     private IInitializableOnLoad[] _initializables;
 
     private void Awake()
     {
         _initializables = GetComponents<IInitializableOnLoad>();
+        IsFirstStart = !File.Exists(SavePath);
+        Debug.Log(IsFirstStart);
         LoadGame();
     }
 

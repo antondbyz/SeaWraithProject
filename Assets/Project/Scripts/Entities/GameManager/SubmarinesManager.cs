@@ -4,33 +4,49 @@ public class SubmarinesManager : MonoBehaviour, IInitializableOnLoad
 {
     public static event System.Action Changed;
     public static SubmarineObject[] SubmarineObjects { get; private set; }
-    public static SubmarineObject CurrentSubmarine => SubmarineObjects[CurrentSubmarineIndex];
     public static int CurrentSubmarineIndex { get; private set; }
     public static bool[] SubmarinesPurchaseStatus { get; private set; }
+    public static SubmarineObject CurrentSubmarine => SubmarineObjects[CurrentSubmarineIndex];
 
-    public static void SetCurrentItem(SubmarineItem item)
+    public static void SetCurrentSubmarineIndex(int newSubmarineIndex)
     {
-        CurrentSubmarineIndex = item.Index;
+        CurrentSubmarineIndex = newSubmarineIndex;
         Changed?.Invoke();
     }
 
-    public static void MarkItemAsBought(SubmarineItem item)
+    public static void MarkSubmarineAsBought(int submarineIndex) 
     {
-        SubmarinesPurchaseStatus[item.Index] = true;
+        SubmarinesPurchaseStatus[submarineIndex] = true;
         Changed?.Invoke(); 
     }
 
-    public static bool IsItemBought(SubmarineItem item) => SubmarinesPurchaseStatus[item.Index];
+    public static bool IsSubmarineBought(int submarineIndex) 
+    {
+        return SubmarinesPurchaseStatus[submarineIndex];
+    }
 
     public void Initialize(SaveData initializationData)
     {
         SubmarineObjects = Resources.LoadAll<SubmarineObject>("SubmarineObjects");
-        CurrentSubmarineIndex = initializationData.CurrentSubmarineIndex;
-        SubmarinesPurchaseStatus = initializationData.SubmarinesPurchaseStatus;
-        if(SubmarinesPurchaseStatus == null)
+        SubmarinesPurchaseStatus = new bool[SubmarineObjects.Length];
+        if(SaveManager.IsFirstStart)
         {
-            SubmarinesPurchaseStatus = new bool[SubmarineObjects.Length];
-            SubmarinesPurchaseStatus[0] = true; 
+            int defaultSubmarineIndex = 0;
+            for(int i = 0; i < SubmarineObjects.Length; i++)
+            {
+                if(SubmarineObjects[i].IsPremium == false) 
+                {
+                    defaultSubmarineIndex = i;
+                    break;
+                }
+            }
+            SubmarinesPurchaseStatus[defaultSubmarineIndex] = true; 
+            CurrentSubmarineIndex = defaultSubmarineIndex;
+        }
+        else
+        {
+            CurrentSubmarineIndex = initializationData.CurrentSubmarineIndex;
+            initializationData.SubmarinesPurchaseStatus.CopyTo(SubmarinesPurchaseStatus, 0);
         }
     }
 }

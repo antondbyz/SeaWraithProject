@@ -801,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 1445794983470115046, guid: c72c5af1a5e36d44f8e5287190c1630a, type: 3}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _spawnRate
-      value: 120
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _poolLength
@@ -3241,7 +3241,7 @@ PrefabInstance:
       objectReference: {fileID: 6756202957965830855, guid: ace15086bbaf12443b8ba3eb744eb1f6, type: 3}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _spawnRate
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _poolLength
@@ -3658,7 +3658,7 @@ PrefabInstance:
       objectReference: {fileID: 2012785835722798007, guid: 9c0baf81684572c4790520866eecb952, type: 3}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _spawnRate
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 991896745086511992, guid: 3c744df55db00cb44a763bc715643b56, type: 3}
       propertyPath: _poolLength

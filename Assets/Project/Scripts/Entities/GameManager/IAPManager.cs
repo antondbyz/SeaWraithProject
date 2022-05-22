@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.Purchasing;
 
-public class IAPManager : MonoBehaviour, IStoreListener
+public class IAPManager : MonoBehaviour, IStoreListener, IInitializableOnLoad
 {
     public const string PREMIUM_ID = "com.eighter.seawraith.premium";
-    public static event System.Action<Product> PurchaseCompleted;
-    public static bool IsPremiumPurchased => _premiumProduct.hasReceipt;
+    public static event System.Action PremiumPurchased;
+    public static bool IsPremiumPurchased { get; private set; }
     private static Product _premiumProduct;
     private static IStoreController _controller;
      
@@ -26,6 +26,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
                     break;
             }
         }
+        if(IsPremiumPurchased == false) IsPremiumPurchased = _premiumProduct.hasReceipt;
     }
 
     public void OnInitializeFailed(InitializationFailureReason error)
@@ -40,8 +41,19 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
     {
-        PurchaseCompleted?.Invoke(purchaseEvent.purchasedProduct);
+        switch(purchaseEvent.purchasedProduct.definition.id)
+        {
+            case PREMIUM_ID:
+                IsPremiumPurchased = true;
+                PremiumPurchased?.Invoke();
+                break;
+        }
         return PurchaseProcessingResult.Complete;
+    }
+
+    public void Initialize(SaveData initializationData)
+    {
+        IsPremiumPurchased = initializationData.IsPremiumPurchased;
     }
 
     private void Awake()
@@ -50,4 +62,5 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(PREMIUM_ID, ProductType.NonConsumable);
         UnityPurchasing.Initialize(this, builder);
     }
+
 }

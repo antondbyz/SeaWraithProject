@@ -6,7 +6,6 @@ public class ShopMenu : MonoBehaviour
     [SerializeField] private GameObject _buyButton;
     [SerializeField] private GameObject _useButton;
     [SerializeField] private GameObject _premiumButton;
-    [SerializeField] private GameObject _buyPremiumItemButton;
     
     public void BuySelectedSubmarine()
     {
@@ -35,7 +34,8 @@ public class ShopMenu : MonoBehaviour
         UpdateUI();
         _itemsController.ItemSelected += UpdateUI;
         SubmarinesManager.Changed += UpdateUI;
-        PlayerProfile.CrystalsChanged -= UpdateUI;
+        PlayerProfile.CrystalsChanged += UpdateUI;
+        IAPManager.PremiumPurchased += UpdateUI;
     }
 
     private void OnDisable()
@@ -43,14 +43,14 @@ public class ShopMenu : MonoBehaviour
         _itemsController.ItemSelected -= UpdateUI;
         SubmarinesManager.Changed -= UpdateUI;
         PlayerProfile.CrystalsChanged -= UpdateUI;
+        IAPManager.PremiumPurchased -= UpdateUI;
     }
 
     private void UpdateUI()
     {
         SubmarineItem selectedItem = (SubmarineItem)_itemsController.SelectedItem;
-        _buyButton.SetActive(!selectedItem.IsBought && selectedItem.IsEnoughtCrystalsToBuy && !selectedItem.IsPremium);
+        _buyButton.SetActive(!selectedItem.IsBought && selectedItem.IsEnoughtCrystalsToBuy);
         _useButton.SetActive(selectedItem.IsBought && !selectedItem.IsCurrent);
-        _buyPremiumItemButton.SetActive(selectedItem.IsPremium && !selectedItem.IsBought);
-        _premiumButton.SetActive(!_buyPremiumItemButton.activeSelf);
+        _premiumButton.SetActive(!IAPManager.IsPremiumPurchased);
     }
 }

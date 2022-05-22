@@ -31,17 +31,8 @@ public class SubmarinesManager : MonoBehaviour, IInitializableOnLoad
         SubmarinesPurchaseStatus = new bool[SubmarineObjects.Length];
         if(SaveManager.IsFirstStart)
         {
-            int defaultSubmarineIndex = 0;
-            for(int i = 0; i < SubmarineObjects.Length; i++)
-            {
-                if(SubmarineObjects[i].IsPremium == false) 
-                {
-                    defaultSubmarineIndex = i;
-                    break;
-                }
-            }
-            SubmarinesPurchaseStatus[defaultSubmarineIndex] = true; 
-            CurrentSubmarineIndex = defaultSubmarineIndex;
+            SubmarinesPurchaseStatus[0] = true; 
+            CurrentSubmarineIndex = 0;
         }
         else
         {

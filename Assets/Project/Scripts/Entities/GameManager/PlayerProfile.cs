@@ -31,6 +31,8 @@ public class PlayerProfile : MonoBehaviour, IInitializableOnLoad
     {
         _bestScore = initializationData.BestScore;
         _crystalsAmount = initializationData.CrystalsAmount;
+        #if UNITY_EDITOR
         CrystalsAmount += _increaseStartCrystalsAmount;
+        #endif
     }
 }

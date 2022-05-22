@@ -10,9 +10,8 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        _initializables = GetComponents<IInitializableOnLoad>();
         IsFirstStart = !File.Exists(SavePath);
-        Debug.Log(IsFirstStart);
+        _initializables = GetComponents<IInitializableOnLoad>();
         LoadGame();
     }
 

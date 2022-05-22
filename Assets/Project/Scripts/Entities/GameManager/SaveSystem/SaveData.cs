@@ -8,6 +8,7 @@ public class SaveData
     public int CurrentSubmarineIndex { get; private set; }
     public bool[] SubmarinesPurchaseStatus { get; private set; }
     public SettingsData Settings { get; private set; } = new SettingsData(1, 1);
+    public bool IsPremiumPurchased { get; private set; }
 
     public void Initialize()
     {
@@ -16,5 +17,6 @@ public class SaveData
         CurrentSubmarineIndex = SubmarinesManager.CurrentSubmarineIndex;
         SubmarinesPurchaseStatus = SubmarinesManager.SubmarinesPurchaseStatus;
         Settings = SettingsManager.Settings;
+        IsPremiumPurchased = IAPManager.IsPremiumPurchased;
     }
 }

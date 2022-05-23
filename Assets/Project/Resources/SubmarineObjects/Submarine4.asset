@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _price: 500
   _paint: {fileID: 21300000, guid: 967929ff6a500e54998250dc545a1810, type: 3}
+  _premiumPaint: {fileID: 21300000, guid: 182e296a1e1c80e498dba37ab209c3e1, type: 3}
   _armor: 5
   _mobility: 80

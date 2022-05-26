@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
                 SoundsPlayer.Instance.PlayRandomSound(_explosionAudios);
             }
             _health = value;
+            _armorText.text = _health.ToString();
             if(_health < _maxHealth)
             {
                 _smokeParticles.Play();
@@ -34,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     public bool IsAlive => _health > 0;
+    [SerializeField] private TMP_Text _armorText;
     [Header("Explosion")]
     [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private AudioClip[] _explosionAudios;

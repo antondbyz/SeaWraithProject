@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 395186705}
   - component: {fileID: 395186704}
   m_Layer: 5
-  m_Name: CrystalsAmount
+  m_Name: CrystalsLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

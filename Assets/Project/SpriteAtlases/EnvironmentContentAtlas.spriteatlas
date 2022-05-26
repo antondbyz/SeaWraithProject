@@ -38,11 +38,13 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 9e91bd30e5ec37545bcf5a16741d4156, type: 3}
+  - {fileID: 21300000, guid: 9e3e28257d950de49a2d2d7feca5a84c, type: 3}
   - {fileID: 21300000, guid: 25ea4248203d83a489e8f6a513db41a2, type: 3}
   - {fileID: 21300000, guid: d2d9d3796251c614bbb921c70d8a3f32, type: 3}
   - {fileID: 21300000, guid: 58d41cbccbf92234e9a58adf811512a7, type: 3}
   m_PackedSpriteNamesToIndex:
   - Crystal
+  - Armor
   - Torpedo
   - StaticBomb
   - FallingBomb

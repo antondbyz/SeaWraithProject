@@ -20,9 +20,6 @@ public class SubmarineItem : SelectableItem
     public void Initialize(SubmarineObject submarine, int index)
     {
         Submarine = submarine;
-        _priceText.text = $"{submarine.Price}<sprite name=Crystal>";
-        _statsText.text = $"<size=90%>Armor:</size> <b>{submarine.Armor}</b>\t" +
-            $"<size=90%>Mobility:</size> <b>{submarine.Mobility}</b>";
         Index = index;
         UpdateUI();
         _isInitialized = true;
@@ -33,18 +30,23 @@ public class SubmarineItem : SelectableItem
         if(_isInitialized) UpdateUI();
         SubmarinesManager.Changed += UpdateUI;
         PlayerProfile.CrystalsChanged += UpdateUI;
+        LocalesManager.LanguageChanged += UpdateUI;
     }
 
     private void OnDisable()
     {
         SubmarinesManager.Changed -= UpdateUI;
         PlayerProfile.CrystalsChanged -= UpdateUI;
+        LocalesManager.LanguageChanged -= UpdateUI;
     }
 
     private void UpdateUI()
     {
         _submarinePreview.sprite = Submarine.Paint;
         _priceText.color = IsEnoughtCrystalsToBuy ? Color.green : Color.red;
+        _priceText.text = $"{Submarine.Price}<sprite name=Crystal>";
+        _statsText.text = $"<size=90%>{LocalesManager.GetLocalizedText("_armor")}:</size> <b>{Submarine.Armor}</b>\t" +
+            $"<size=90%>{LocalesManager.GetLocalizedText("_mobility")}:</size> <b>{Submarine.Mobility}</b>";
         _priceLabel.SetActive(!IsBought);
         _boughtLabel.SetActive(IsBought && !IsCurrent);
         _usingLabel.SetActive(IsCurrent);

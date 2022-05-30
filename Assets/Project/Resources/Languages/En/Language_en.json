@@ -1,0 +1,26 @@
+{
+    "LocaleData":
+    [
+    {"Key": "_play", "Value": "Play"},
+    {"Key": "_shop", "Value": "Shop"},
+    {"Key": "_settings", "Value": "Settings"},
+    {"Key": "_bestScore", "Value": "Best score"},
+    {"Key": "_musicVolume", "Value": "Music volume"},
+    {"Key": "_soundsVolume", "Value": "Sounds volume"},
+    {"Key": "_premium", "Value": "Premium"}, 
+    {"Key": "_buy", "Value": "Buy"},
+    {"Key": "_use", "Value": "Use"},
+    {"Key": "_premiumDescription", "Value": "Buy premium status and get: <color=yellow><b>\n- No interstitial ads;\n- Unique premium paint</b></color>"},
+    {"Key": "_armor", "Value": "Armor"},
+    {"Key": "_mobility", "Value": "Mobility"},
+    {"Key": "_bought", "Value": "Bought"},
+    {"Key": "_using", "Value": "Using"},
+    {"Key": "_crystalsAdDescription", "Value": "Watch the ad and collected crystals will be doubled!"},
+    {"Key": "_yes", "Value": "Yes"},
+    {"Key": "_no", "Value": "No"},
+    {"Key": "_loading", "Value": "Loading..."},
+    {"Key": "_adFailedToLoad", "Value": "Failed to load the ad"},
+    {"Key": "_tryAgain", "Value": "Try again"},
+    {"Key": "_mainMenu", "Value": "Main menu"}
+    ]
+}

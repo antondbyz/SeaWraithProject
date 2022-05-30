@@ -1,0 +1,26 @@
+{
+    "LocaleData":
+    [
+    {"Key": "_play", "Value": "Играть"},
+    {"Key": "_shop", "Value": "Магазин"},
+    {"Key": "_settings", "Value": "Настройки"},
+    {"Key": "_bestScore", "Value": "Лучший счет"},
+    {"Key": "_musicVolume", "Value": "Громкость музыки"},
+    {"Key": "_soundsVolume", "Value": "Громкость звуков"},
+    {"Key": "_premium", "Value": "Премиум"}, 
+    {"Key": "_buy", "Value": "Купить"},
+    {"Key": "_use", "Value": "Использовать"},
+    {"Key": "_premiumDescription", "Value": "Купи премиум статус и получи: <color=yellow><b>\n- Отключение межстраничной рекламы;\n- Уникальную премиум краску</b></color>"},
+    {"Key": "_armor", "Value": "Броня"},
+    {"Key": "_mobility", "Value": "Мобильность"},
+    {"Key": "_bought", "Value": "Куплено"},
+    {"Key": "_using", "Value": "Используется"},
+    {"Key": "_crystalsAdDescription", "Value": "Посмотри рекламу и собранные кристаллы удвоятся!"},
+    {"Key": "_yes", "Value": "Да"},
+    {"Key": "_no", "Value": "Нет"},
+    {"Key": "_loading", "Value": "Загрузка..."},
+    {"Key": "_adFailedToLoad", "Value": "Не удалось загрузить рекламу"},
+    {"Key": "_tryAgain", "Value": "Попробовать снова"},
+    {"Key": "_mainMenu", "Value": "Главное меню"}
+    ]
+}

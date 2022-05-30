@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 37819719}
   - component: {fileID: 37819721}
   - component: {fileID: 37819720}
+  - component: {fileID: 37819722}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -391,6 +392,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37819718}
   m_CullTransparentMesh: 1
+--- !u!114 &37819722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37819718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56881614e4bd6884ea42c58c50943e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: _crystalsAdDescription
 --- !u!1 &102717018
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +631,10 @@ PrefabInstance:
     - target: {fileID: 469480335998624939, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
       propertyPath: m_Name
       value: MainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641115644861402374, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
+      propertyPath: localizationKey
+      value: _mainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
@@ -1300,6 +1318,10 @@ PrefabInstance:
     - target: {fileID: 469480335998624939, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
       propertyPath: m_Name
       value: RestartButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641115644861402374, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
+      propertyPath: localizationKey
+      value: _tryAgain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
@@ -2243,6 +2265,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3641115644861402374, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
+      propertyPath: localizationKey
+      value: _no
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
 --- !u!224 &694828224 stripped
@@ -2261,6 +2287,7 @@ GameObject:
   - component: {fileID: 702573076}
   - component: {fileID: 702573078}
   - component: {fileID: 702573077}
+  - component: {fileID: 702573079}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2384,6 +2411,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702573075}
   m_CullTransparentMesh: 1
+--- !u!114 &702573079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702573075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56881614e4bd6884ea42c58c50943e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: _loading
 --- !u!1 &708935672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +2698,7 @@ GameObject:
   - component: {fileID: 890770143}
   - component: {fileID: 890770145}
   - component: {fileID: 890770144}
+  - component: {fileID: 890770146}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2781,6 +2822,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890770142}
   m_CullTransparentMesh: 1
+--- !u!114 &890770146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890770142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56881614e4bd6884ea42c58c50943e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: _adFailedToLoad
 --- !u!1001 &899131156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3216,6 +3270,10 @@ PrefabInstance:
     - target: {fileID: 469480335998624939, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641115644861402374, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
+      propertyPath: localizationKey
+      value: _yes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8858667a95515ea44bf9c511a0761f0e, type: 3}
